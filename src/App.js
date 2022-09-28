@@ -5,7 +5,7 @@ import Clock from './comps/Clock'
 
 function App() {
   return (
-    <div className="App">
+    <div className="App noon">
       <div className='MainMedia'>
         <Clock />
         <Player />

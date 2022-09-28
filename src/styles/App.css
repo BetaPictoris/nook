@@ -1,7 +1,32 @@
+.App {
+  height: 101.8vh;
+}
+
 .MainMedia {
   text-align: center;
   
   -webkit-transform: translateY(100%);
   transform: translateY(100%);        
   margin-top: -10px;
+}
+
+/* Time based themes */
+.morning { 
+  background-image: url("http://cdn.ozx.me/ac/pattern_fallback.png"),
+  linear-gradient(#fda658, #c46d55);
+}
+
+.noon {
+  background-image: url("http://cdn.ozx.me/ac/pattern_fallback.png"),
+  linear-gradient(#fda658, #c46d55);
+}
+
+.afternoon {
+  background-image: url("http://cdn.ozx.me/ac/pattern_fallback.png"),
+  linear-gradient(#6358fd, #5569c4);
+}
+
+.night {
+  background-image: url("http://cdn.ozx.me/ac/pattern_fallback.png"),
+  linear-gradient(#fda658, #c46d55);
 }

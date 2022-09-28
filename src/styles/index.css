@@ -1,13 +1,9 @@
 body {
   margin: 0;
-  height: 101.8vh;
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  background-image: url("http://cdn.ozx.me/ac/pattern_fallback.png"),
-    linear-gradient(#fda658, #c46d55);
 }
