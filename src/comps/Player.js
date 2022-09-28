@@ -1,9 +1,12 @@
 import React from "react";
 import "../styles/Player.css";
 
+import { BsFillPlayFill } from "@react-icons/all-files/bs/BsFillPlayFill";
+import { BsPauseFill } from "@react-icons/all-files/bs/BsPauseFill";
+
 export default function Player() {
   const [date, setDate] = React.useState(new Date());
-  const [bttnTxt, setBttn] = React.useState("Play");
+  const [bttnTxt, setBttn] = React.useState(<BsFillPlayFill />);
 
   React.useEffect(() => {
     const timerID = setInterval(() => tick(), 1000);
@@ -26,10 +29,10 @@ export default function Player() {
 
     if (audioPlayer.paused) {
       audioPlayer.play();
-      setBttn("Stop");
+      setBttn(<BsPauseFill />);
     } else {
       audioPlayer.pause();
-      setBttn("Play");
+      setBttn(<BsFillPlayFill />);
     }
   }
 

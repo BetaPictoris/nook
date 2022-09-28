@@ -1,3 +1,9 @@
 .App {
   text-align: center;
 }
+
+.MainMedia {
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);        
+  margin-top: -10px;
+}
