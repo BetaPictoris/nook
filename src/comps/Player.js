@@ -6,7 +6,7 @@ import { BsPauseFill } from "@react-icons/all-files/bs/BsPauseFill";
 
 export default function Player() {
   const [date, setDate] = React.useState(new Date());
-  const [bttnTxt, setBttn] = React.useState(<BsFillPlayFill />);
+  const [playing, setPlaying] = React.useState(false);
 
   React.useEffect(() => {
     const timerID = setInterval(() => tick(), 1000);
@@ -23,22 +23,28 @@ export default function Player() {
   var base = "https://cdn.ozx.me/ac";
   var game = "new-horizons";
   var weather = "clear";
+  
+  var audioPlayer = document.getElementById("audio");
 
   function playAudio() {
-    var audioPlayer = document.getElementById("audio");
-
     if (audioPlayer.paused) {
       audioPlayer.play();
-      setBttn(<BsPauseFill />);
     } else {
       audioPlayer.pause();
-      setBttn(<BsFillPlayFill />);
     }
+  }
+
+  function play() {
+    setPlaying(true)
+  }
+
+  function pause() {
+    setPlaying(false)
   }
 
   return (
     <div className="Player">
-      <audio id="audio" controls="" loop>
+      <audio id="audio" controls="" loop onPause={pause} onPlay={play}>
         <source
           id="oggSource"
           src={`${base}/${game}/music/${weather}/${date.getHours()}.ogg`}
@@ -47,7 +53,7 @@ export default function Player() {
       </audio>
 
       <button className="mediaControl" onClick={playAudio}>
-        {bttnTxt}
+        {playing ? <BsPauseFill /> : <BsFillPlayFill />}
       </button>
     </div>
   );
