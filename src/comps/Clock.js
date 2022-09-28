@@ -19,7 +19,7 @@ export default function Clock() {
   return (
     <div className="Clock">
       {date.getHours() > 12 ? date.getHours() - 12 : date.getHours()}
-      {date.getSeconds() % 2 == 0 ? ":" : " "}
+      {date.getSeconds() % 2 === 0 ? ":" : " "}
       {date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()}
     </div>
   );
