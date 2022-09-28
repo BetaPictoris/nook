@@ -3,6 +3,7 @@ import "../styles/Player.css";
 
 export default function Player() {
   const [date, setDate] = React.useState(new Date());
+  const [bttnTxt, setBttn] = React.useState("Play");
 
   React.useEffect(() => {
     const timerID = setInterval(() => tick(), 1000);
@@ -25,8 +26,10 @@ export default function Player() {
 
     if (audioPlayer.paused) {
       audioPlayer.play();
+      setBttn("Stop");
     } else {
       audioPlayer.pause();
+      setBttn("Play");
     }
   }
 
@@ -41,7 +44,7 @@ export default function Player() {
       </audio>
 
       <button className="mediaControl" onClick={playAudio}>
-        A
+        {bttnTxt}
       </button>
     </div>
   );
