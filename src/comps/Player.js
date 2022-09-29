@@ -9,6 +9,7 @@ export default function Player() {
   const [playing, setPlaying] = React.useState(false);
 
   var audioPlayer = document.getElementById("audio");
+  var audioPlayerRain = document.getElementById("audioRain");
 
   React.useEffect(() => {
     const timerID = setInterval(() => tick(), 1000);
@@ -18,7 +19,7 @@ export default function Player() {
     };
   });
 
-  var base = "https://cdn.ozx.me/ac";
+  var base = "https://cdn.ozx.me";
   var game = sessionStorage.getItem("game");
   var weather = sessionStorage.getItem("weather");
   
@@ -36,7 +37,7 @@ export default function Player() {
   function tick() {
     setDate(new Date());
     if (date.getMinutes() === 0 && date.getSeconds() === 1) {
-      audioPlayer.src = `${base}/${game}/music/${urlWeather}/${date.getHours()}.ogg`
+      audioPlayer.src = `${base}/ac/${game}/music/${urlWeather}/${date.getHours()}.ogg`
       audioPlayer.load()
       audioPlayer.play()
     }
@@ -51,10 +52,15 @@ export default function Player() {
   
   function play() {
     setPlaying(true)
+    if (weather === "rainy") {
+      audioPlayerRain.volume = 0.7
+      audioPlayerRain.play()
+    }
   }
 
   function pause() {
     setPlaying(false)
+    audioPlayerRain.pause()
   }
 
   return (
@@ -62,7 +68,15 @@ export default function Player() {
       <audio id="audio" controls="" loop onPause={pause} onPlay={play}>
         <source
           id="oggSource"
-          src={`${base}/${game}/music/${urlWeather}/${date.getHours()}.ogg`}
+          src={`${base}/ac/${game}/music/${urlWeather}/${date.getHours()}.ogg`}
+          type="audio/ogg"
+        ></source>
+      </audio>
+
+      <audio id="audioRain" controls="" loop>
+        <source
+          id="oggRainSource"
+          src={`${base}/sounds/rain.ogg`}
           type="audio/ogg"
         ></source>
       </audio>
