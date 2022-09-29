@@ -18,14 +18,18 @@ export default function Player() {
     };
   });
 
-  function tick() {
-    setDate(new Date());
-  }
-
   var base = "https://cdn.ozx.me/ac";
   var game = sessionStorage.getItem("game");
   var weather = sessionStorage.getItem("weather");
-  
+
+  function tick() {
+    setDate(new Date());
+    if (date.getSeconds() === 1) {
+      audioPlayer.src = `${base}/${game}/music/${weather}/${date.getHours()}.ogg`
+      audioPlayer.load()
+      audioPlayer.play()
+    }
+  }
   function playAudio() {
     if (audioPlayer.paused) {
       audioPlayer.play();
