@@ -8,6 +8,8 @@ export default function Player() {
   const [date, setDate] = React.useState(new Date());
   const [playing, setPlaying] = React.useState(false);
 
+  var audioPlayer = document.getElementById("audio");
+
   React.useEffect(() => {
     const timerID = setInterval(() => tick(), 1000);
 
@@ -21,11 +23,9 @@ export default function Player() {
   }
 
   var base = "https://cdn.ozx.me/ac";
-  var game = "new-horizons";
-  var weather = "clear";
+  var game = sessionStorage.getItem("game");
+  var weather = sessionStorage.getItem("weather");
   
-  var audioPlayer = document.getElementById("audio");
-
   function playAudio() {
     if (audioPlayer.paused) {
       audioPlayer.play();
@@ -33,7 +33,7 @@ export default function Player() {
       audioPlayer.pause();
     }
   }
-
+  
   function play() {
     setPlaying(true)
   }
