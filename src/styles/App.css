@@ -54,3 +54,13 @@
   width: 100vw;
   bottom: 0px;
 }
+
+/* settingsPage styles */
+.settingsPage {
+  background-color: #eee;
+  height: 60vh;
+
+  padding-top: 20px;
+
+  border-radius: 20px 20px 0px 0px;
+}

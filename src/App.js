@@ -3,13 +3,13 @@ import './styles/App.css';
 
 import Player from './comps/Player'
 import Clock from './comps/Clock'
+import SettingsPage from './comps/Settings'
 
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 
 import PlayCircleSharp from '@mui/icons-material/PlayCircleSharp';
-import PlaylistPlay from '@mui/icons-material/PlaylistPlay';
 import Settings from '@mui/icons-material/Settings';
 
 function App() {
@@ -43,15 +43,19 @@ function App() {
   }
 
   const ToD = getToD()
-  const appClass = "App " + ToD
   
   return (
-    <div className={appClass}>
+    <div className={"App " + ToD + " page-" + page}>
       <div className='MainMedia'>
-        {page == 0 &&
+        {page === 0 &&
           <div className="listenPage">
             <Clock period={ToD}/>
             <Player />
+          </div>
+        }
+        {page === 1 &&
+          <div className="settingsPage">
+            <SettingsPage />
           </div>
         }
       </div>
@@ -64,7 +68,6 @@ function App() {
           }}
         >
           <BottomNavigationAction label="Listen" icon={<PlayCircleSharp />} />
-          <BottomNavigationAction label="Game" icon={<PlaylistPlay />} />
           <BottomNavigationAction label="Settings" icon={<Settings />} />
         </BottomNavigation>
       </Box>
