@@ -21,11 +21,22 @@ export default function Player() {
   var base = "https://cdn.ozx.me/ac";
   var game = sessionStorage.getItem("game");
   var weather = sessionStorage.getItem("weather");
+  
+  // This is the weather that is used in the URL
+  // because some games don't have per-weather music, but, we can still use
+  // rain/snow sounds.
+  var urlWeather = weather
+  const noWeatherSupport = ["population-growing", "new-horizons"]
+
+  if (noWeatherSupport.indexOf(game) !== -1){
+    urlWeather = "clear"
+  }
+
 
   function tick() {
     setDate(new Date());
     if (date.getMinutes() === 0 && date.getSeconds() === 1) {
-      audioPlayer.src = `${base}/${game}/music/${weather}/${date.getHours()}.ogg`
+      audioPlayer.src = `${base}/${game}/music/${urlWeather}/${date.getHours()}.ogg`
       audioPlayer.load()
       audioPlayer.play()
     }
@@ -51,7 +62,7 @@ export default function Player() {
       <audio id="audio" controls="" loop onPause={pause} onPlay={play}>
         <source
           id="oggSource"
-          src={`${base}/${game}/music/${weather}/${date.getHours()}.ogg`}
+          src={`${base}/${game}/music/${urlWeather}/${date.getHours()}.ogg`}
           type="audio/ogg"
         ></source>
       </audio>
