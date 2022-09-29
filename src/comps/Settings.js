@@ -39,11 +39,7 @@ export default function Settings() {
         onChange={weatherChange}
       >
         <FormControlLabel value="clear" control={<Radio />} label="Clear" />
-        <FormControlLabel
-          value="rainy"
-          control={<Radio />}
-          label="Rain"
-        />
+        <FormControlLabel value="rainy" control={<Radio />} label="Rain" />
         <FormControlLabel value="snowy" control={<Radio />} label="Snow" />
       </RadioGroup>
     </FormControl>
