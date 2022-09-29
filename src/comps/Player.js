@@ -1,8 +1,8 @@
 import React from "react";
 import "../styles/Player.css";
 
-import { BsFillPlayFill } from "@react-icons/all-files/bs/BsFillPlayFill";
-import { BsPauseFill } from "@react-icons/all-files/bs/BsPauseFill";
+import PlayArrow from '@mui/icons-material/PlayArrow';
+import Pause from '@mui/icons-material/Pause';
 
 export default function Player() {
   const [date, setDate] = React.useState(new Date());
@@ -53,7 +53,7 @@ export default function Player() {
       </audio>
 
       <button className="mediaControl" onClick={playAudio}>
-        {playing ? <BsPauseFill /> : <BsFillPlayFill />}
+        {playing ? <Pause /> : <PlayArrow />}
       </button>
     </div>
   );
