@@ -56,7 +56,7 @@ function App() {
         {page === 1 &&
           <div className="settingsPage">
             <SettingsPage />
-          </div>
+        </div>
         }
       </div>
       <Box className="bottomNavBox">

@@ -1,5 +1,5 @@
 .App {
-  height: 101.9vh;
+  height: 101.7vh;
 }
 
 .MainMedia {
@@ -57,7 +57,7 @@
 
 /* settingsPage styles */
 .settingsPage {
-  background-color: #eee;
+  background-image: linear-gradient(#eee, #fff);
   height: 60vh;
 
   padding-top: 20px;
