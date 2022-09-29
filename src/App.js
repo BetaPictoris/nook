@@ -4,8 +4,17 @@ import './styles/App.css';
 import Player from './comps/Player'
 import Clock from './comps/Clock'
 
+import Box from '@mui/material/Box';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+
+import PlayCircleSharp from '@mui/icons-material/PlayCircleSharp';
+import PlaylistPlay from '@mui/icons-material/PlaylistPlay';
+import Settings from '@mui/icons-material/Settings';
+
 function App() {
   const [date, setDate] = React.useState(new Date());
+  const [page, setPage] = React.useState(0);
 
   React.useEffect(() => {
     const timerID = setInterval(() => tick(), 1000);
@@ -42,6 +51,19 @@ function App() {
         <Clock period={ToD}/>
         <Player />
       </div>
+      <Box className="bottomNavBox">
+        <BottomNavigation
+          showLabels
+          value={page}
+          onChange={(event, newValue) => {
+            page(newValue);
+          }}
+        >
+          <BottomNavigationAction label="Listen" icon={<PlayCircleSharp />} />
+          <BottomNavigationAction label="Game" icon={<PlaylistPlay />} />
+          <BottomNavigationAction label="Settings" icon={<Settings />} />
+        </BottomNavigation>
+      </Box>
     </div>
   );
 }

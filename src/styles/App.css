@@ -48,3 +48,9 @@
 
   cursor: pointer;
 }
+
+.bottomNavBox {
+  position: absolute;
+  width: 100vw;
+  bottom: 0px;
+}
