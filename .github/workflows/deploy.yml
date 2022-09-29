@@ -40,7 +40,7 @@ jobs:
         uses: actions/setup-node@v3.4.1
       - name: Install Node modules
         run: npm install
-      - name: Build Docusaurus
+      - name: Build React App
         run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
