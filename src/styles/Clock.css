@@ -1,6 +1,12 @@
 .Clock {
+  color: #eee;
+}
+
+.ClockTime {
   font-size: 5em;
   font-weight: bold;
-  
-  color: #eee;
+}
+
+.ClockPeriod {
+  font-size: 2em;
 }

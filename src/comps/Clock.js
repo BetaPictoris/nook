@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Clock.css";
 
-export default function Clock() {
+export default function Clock(props) {
   const [date, setDate] = React.useState(new Date());
 
   React.useEffect(() => {
@@ -18,9 +18,14 @@ export default function Clock() {
 
   return (
     <div className="Clock">
-      {date.getHours() > 12 ? date.getHours() - 12 : date.getHours()}
-      {date.getSeconds() % 2 === 0 ? ":" : ":"}
-      {date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()}
+      <div className="ClockTime">
+        {date.getHours() > 12 ? date.getHours() - 12 : date.getHours()}
+        {date.getSeconds() % 2 === 0 ? ":" : ":"}
+        {date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()}
+      </div>
+      <div className="ClockPeriod">
+        Good {props.period}!
+      </div>
     </div>
   );
 }

@@ -5,9 +5,13 @@
 .MainMedia {
   text-align: center;
   
-  -webkit-transform: translateY(100%);
-  transform: translateY(100%);        
+  -webkit-transform: translateY(60%);
+  transform: translateY(60%);
   margin-top: -10px;
+}
+
+.Player {
+  padding-top: 3em;
 }
 
 /* Time based themes */
@@ -28,5 +32,5 @@
 
 .night {
   background-image: url("http://cdn.ozx.me/ac/pattern_fallback.png"),
-  linear-gradient(#fda658, #c46d55);
+  linear-gradient(#0c1332, #3d5c9b);
 }
