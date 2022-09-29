@@ -43,6 +43,10 @@ export default function Settings() {
         <FormControlLabel value="snowy" control={<Radio />} label="Snow" />
       </RadioGroup>
     </FormControl>
+    <p className='legalTxt'>
+      This is a web port of <a href="https://twitter.com/AnimalRadio_App">Animal Sounds</a>.<br></br>
+      Not associated with or endorsed by Nintendo, Animal Sounds, or Animal Radio.
+    </p>
     </div>
   );
 }
