@@ -1,5 +1,5 @@
 .App {
-  height: 101.8vh;
+  height: 100vh;
 }
 
 .MainMedia {
@@ -33,4 +33,18 @@
 .night {
   background-image: url("http://cdn.ozx.me/ac/pattern_fallback.png"),
   linear-gradient(#0c1332, #3d5c9b);
+}
+
+/* Settings Button */
+.settingsBttn {
+  background-color: #00000000;
+  border: none;
+
+  color: #eee;
+  font-size: 1.5em;
+
+  padding-top: 5px;
+  padding-left: 5px;
+
+  cursor: pointer;
 }
