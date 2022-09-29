@@ -16,6 +16,12 @@ export default function Clock(props) {
     setDate(new Date());
   }
 
+  var periodTime = props.period
+
+  if (periodTime === "noon") {
+    periodTime = "day"
+  }
+
   return (
     <div className="Clock">
       <div className="ClockTime">
@@ -24,7 +30,7 @@ export default function Clock(props) {
         {date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()}
       </div>
       <div className="ClockPeriod">
-        Good {props.period}!
+        Good {periodTime}!
       </div>
     </div>
   );
