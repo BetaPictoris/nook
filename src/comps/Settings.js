@@ -6,12 +6,21 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
 export default function Settings() {
+  var audioPlayer = document.getElementById("audio");
+  var audioPlayerRain = document.getElementById("audioRain");
+
   const gameChange = (event) => {
     sessionStorage.setItem("game", event.target.value)
+    audioPlayer.pause()
+    audioPlayer.load()
+    audioPlayer.play()
   }
 
   const weatherChange = (event) => {
     sessionStorage.setItem("weather", event.target.value)
+    audioPlayer.pause()
+    audioPlayer.load()
+    audioPlayer.play()
   }
 
   return (
