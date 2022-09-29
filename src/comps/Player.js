@@ -24,7 +24,7 @@ export default function Player() {
 
   function tick() {
     setDate(new Date());
-    if (date.getSeconds() === 1) {
+    if (date.getMinutes() === 0 && date.getSeconds() === 1) {
       audioPlayer.src = `${base}/${game}/music/${weather}/${date.getHours()}.ogg`
       audioPlayer.load()
       audioPlayer.play()
