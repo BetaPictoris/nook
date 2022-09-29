@@ -111,9 +111,9 @@ function App() {
   }
 
   const ToD = getToD()
-  
+
   return (
-    <div className={"App " + ToD + " page-" + page}>
+    <div className={"App " + ToD + " page-" + page + " darkMode" + sessionStorage.getItem("darkMode")}>
       <audio id="audio" controls="" loop onPause={pause} onPlay={play}>
         <source
           id="oggSource"

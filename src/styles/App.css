@@ -64,3 +64,9 @@
 
   border-radius: 20px 20px 0px 0px;
 }
+
+/* Dark mode */
+.darkModeon {
+  background-image: url("http://cdn.ozx.me/ac/pattern_fallback.png"),
+  linear-gradient(#191919, #121212);
+}

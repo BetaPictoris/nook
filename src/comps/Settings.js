@@ -1,9 +1,12 @@
 import * as React from 'react';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
+
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import Switch from '@mui/material/Switch';
 
 export default function Settings() {
   const gameChange = (event) => {
@@ -12,6 +15,14 @@ export default function Settings() {
 
   const weatherChange = (event) => {
     sessionStorage.setItem("weather", event.target.value)
+  }
+
+  const darkModeChange = (event) => {
+    if (sessionStorage.getItem("darkMode") === "on") {
+      sessionStorage.setItem("darkMode", "off")
+    } else {
+      sessionStorage.setItem("darkMode", "on")
+    }
   }
 
   return (
@@ -43,8 +54,13 @@ export default function Settings() {
         <FormControlLabel value="snowy" control={<Radio />} label="Snow" />
       </RadioGroup>
     </FormControl>
+    <FormControl>
+      <FormControlLabel control={sessionStorage.getItem("darkMode")==="on" ? <Switch defaultChecked/> : <Switch />} onChange={darkModeChange} label="Dark mode" />
+      <FormControlLabel control={sessionStorage.getItem("townBell")==="on" ? <Switch defaultChecked/> : <Switch />} disabled label="Town bell" />
+    </FormControl>
     <p className='legalTxt'>
-      This is a web port of <a href="https://twitter.com/AnimalRadio_App">Animal Sounds</a>.<br></br>
+      This is a web port of <a href="https://twitter.com/AnimalRadio_App">Animal Sounds</a>.
+      <br></br>
       Not associated with or endorsed by Nintendo, Animal Sounds, or Animal Radio.
     </p>
     </div>

@@ -7,6 +7,8 @@ import App from "./App";
 if (!sessionStorage.getItem("game")) {
   sessionStorage.setItem("game", "new-horizons")
   sessionStorage.setItem("weather", "clear")
+  sessionStorage.setItem("darkMode", "off")
+  sessionStorage.setItem("townBell", "on")
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
