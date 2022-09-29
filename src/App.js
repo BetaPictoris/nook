@@ -44,19 +44,23 @@ function App() {
 
   const ToD = getToD()
   const appClass = "App " + ToD
-
+  
   return (
     <div className={appClass}>
       <div className='MainMedia'>
-        <Clock period={ToD}/>
-        <Player />
+        {page == 0 &&
+          <div className="listenPage">
+            <Clock period={ToD}/>
+            <Player />
+          </div>
+        }
       </div>
       <Box className="bottomNavBox">
         <BottomNavigation
           showLabels
           value={page}
           onChange={(event, newValue) => {
-            page(newValue);
+            setPage(newValue);
           }}
         >
           <BottomNavigationAction label="Listen" icon={<PlayCircleSharp />} />
