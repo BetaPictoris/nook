@@ -2,9 +2,9 @@
   height: 101.7vh;
 }
 
-.MainMedia {
+.Main {
   text-align: center;
-  
+
   -webkit-transform: translateY(60%);
   transform: translateY(60%);
   margin-top: -10px;

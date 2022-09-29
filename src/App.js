@@ -111,7 +111,7 @@ function App() {
       </audio>
 
 
-      <div className='MainMedia'>
+      <div className='Main'>
         {page === 0 &&
           <div className="listenPage">
             <Clock period={ToD}/>
