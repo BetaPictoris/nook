@@ -48,10 +48,28 @@ function App() {
   function tick() {
     setDate(new Date());
 
-    if (date.getMinutes() === 0 && date.getSeconds() === 1) {
-      audioPlayer.src = `${base}/ac/${game}/music/${urlWeather}/${date.getHours()}.ogg`
-      audioPlayer.load()
-      audioPlayer.play()
+    game = sessionStorage.getItem("game");
+    weather = sessionStorage.getItem("weather");
+
+    urlWeather = weather
+  
+    if (noWeatherSupport.indexOf(game) !== -1){
+      urlWeather = "clear"
+    }
+
+    if (playing) {
+      if (audioPlayer.src !== `${base}/ac/${game}/music/${urlWeather}/${date.getHours()}.ogg`) {
+        audioPlayer.src = `${base}/ac/${game}/music/${urlWeather}/${date.getHours()}.ogg`
+        audioPlayer.load()
+        audioPlayer.play()
+      }
+
+      if (weather === "rainy") {
+        audioPlayerRain.volume = 0.7
+        audioPlayerRain.play()
+      } else {
+        audioPlayerRain.pause()
+      }
     }
   }
 
@@ -68,6 +86,8 @@ function App() {
     if (weather === "rainy") {
       audioPlayerRain.volume = 0.7
       audioPlayerRain.play()
+    } else {
+      audioPlayerRain.pause()
     }
   }
 
