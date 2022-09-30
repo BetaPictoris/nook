@@ -149,6 +149,7 @@ function App() {
       <Box className="bottomNavBox">
         <BottomNavigation
           showLabels
+          className="bottomNav"
           value={page}
           onChange={(event, newValue) => {
             setPage(newValue);
