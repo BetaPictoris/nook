@@ -17,30 +17,6 @@ import Pause from '@mui/icons-material/Pause';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const darkTheme = createTheme({
-  palette: {
-    type: 'dark',
-    primary: {
-      main: '#85ff7f',
-    },
-    secondary: {
-      main: '#555',
-    },
-    background: {
-      paper: '#000000',
-      default: '#000000',
-    },
-    text: {
-      primary: '#c5c5c5',
-      secondary: '#c5c5c5',
-      hint: '#c5c5c5',
-      disabled: '#c5c5c5',
-    },
-  },
-});
-
-const lightTheme = createTheme({})
-
 function App() {
   const [date, setDate] = React.useState(new Date());
   const [playing, setPlaying] = React.useState(false);
@@ -137,6 +113,49 @@ function App() {
   }
 
   const ToD = getToD()
+
+  var themePrimary = "#555";
+
+  if (ToD === "morning") { 
+    themePrimary = "#fda658"
+  } else if (ToD === "noon") { 
+    themePrimary = "#58a2fd"
+  } else if (ToD === "afternoon") { 
+    themePrimary = "#6358fd"
+  } else if (ToD === "night") {
+    themePrimary = "#3d5c9b"
+  } 
+
+  const darkTheme = createTheme({
+    palette: {
+      type: 'dark',
+      primary: {
+        main: themePrimary,
+      },
+      secondary: {
+        main: '#555',
+      },
+      background: {
+        paper: '#000000',
+        default: '#000000',
+      },
+      text: {
+        primary: '#c5c5c5',
+        secondary: '#c5c5c5',
+        hint: '#c5c5c5',
+        disabled: '#c5c5c5',
+      },
+    },
+  });
+  
+  const lightTheme = createTheme({
+    palette: {
+      type: 'light',
+      primary: {
+        main: themePrimary,
+      },
+    }
+  })
 
   return (
     <ThemeProvider theme={sessionStorage.getItem("darkMode") === "on" ? darkTheme : lightTheme}>
