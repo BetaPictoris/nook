@@ -56,7 +56,6 @@ export default function Settings() {
     </FormControl>
     <FormControl>
       <FormControlLabel control={sessionStorage.getItem("darkMode")==="on" ? <Switch defaultChecked/> : <Switch />} onChange={darkModeChange} label="Dark mode" />
-      <FormControlLabel control={sessionStorage.getItem("townBell")==="on" ? <Switch defaultChecked/> : <Switch />} disabled label="Town bell" />
     </FormControl>
     <p className='legalTxt'>
       This is a web port of <a href="https://twitter.com/AnimalRadio_App">Animal Sounds</a>.
