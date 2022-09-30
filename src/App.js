@@ -15,6 +15,32 @@ import Settings from '@mui/icons-material/Settings';
 import PlayArrow from '@mui/icons-material/PlayArrow';
 import Pause from '@mui/icons-material/Pause';
 
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const darkTheme = createTheme({
+  palette: {
+    type: 'dark',
+    primary: {
+      main: '#fda658',
+    },
+    secondary: {
+      main: '#555',
+    },
+    background: {
+      paper: '#000000',
+      default: '#000000',
+    },
+    text: {
+      primary: '#c5c5c5',
+      secondary: '#c5c5c5',
+      hint: '#c5c5c5',
+      disabled: '#c5c5c5',
+    },
+  },
+});
+
+const lightTheme = createTheme({})
+
 function App() {
   const [date, setDate] = React.useState(new Date());
   const [playing, setPlaying] = React.useState(false);
@@ -113,6 +139,7 @@ function App() {
   const ToD = getToD()
 
   return (
+    <ThemeProvider theme={sessionStorage.getItem("darkMode") === "on" ? darkTheme : lightTheme}>
     <div className={"App " + ToD + " page-" + page + " darkMode" + sessionStorage.getItem("darkMode")}>
       <audio id="audio" controls="" loop onPause={pause} onPlay={play}>
         <source
@@ -160,6 +187,7 @@ function App() {
         </BottomNavigation>
       </Box>
     </div>
+    </ThemeProvider>
   );
 }
 

@@ -26,7 +26,7 @@ export default function Settings() {
   }
 
   return (
-    <div className='settingsComp'>
+    <div className={'settingsCompDarkMode' + sessionStorage.getItem("darkMode")}>
     <FormControl>
       <FormLabel id="gameFormLabel">Game</FormLabel>
       <RadioGroup
