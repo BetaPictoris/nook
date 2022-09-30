@@ -16,22 +16,22 @@
 
 /* Time based themes */
 .morning { 
-  background-image: url("http://cdn.ozx.me/ac/pattern_fallback.png"),
+  background-image: url("https://cdn.ozx.me/ac/pattern_fallback.png"),
   linear-gradient(#fda658, #c46d55);
 }
 
 .noon {
-  background-image: url("http://cdn.ozx.me/ac/pattern_fallback.png"),
+  background-image: url("https://cdn.ozx.me/ac/pattern_fallback.png"),
   linear-gradient(#58a2fd, #465ed5);
 }
 
 .afternoon {
-  background-image: url("http://cdn.ozx.me/ac/pattern_fallback.png"),
+  background-image: url("https://cdn.ozx.me/ac/pattern_fallback.png"),
   linear-gradient(#6358fd, #5569c4);
 }
 
 .night {
-  background-image: url("http://cdn.ozx.me/ac/pattern_fallback.png"),
+  background-image: url("https://cdn.ozx.me/ac/pattern_fallback.png"),
   linear-gradient(#0c1332, #3d5c9b);
 }
 
@@ -67,6 +67,6 @@
 
 /* Dark mode */
 .darkModeon {
-  background-image: url("http://cdn.ozx.me/ac/pattern_fallback.png"),
+  background-image: url("https://cdn.ozx.me/ac/pattern_fallback.png"),
   linear-gradient(#191919, #121212);
 }
