@@ -1,9 +1,14 @@
+
+@font-face {
+  font-family: 'SeuratPro';
+  font-weight: bold;
+  src: url('https://cdn.ozx.me/fonts/Fontworks/Japanese/Round-Gothic/SeuratPro-B.otf') format("opentype");
+}
+
 body {
   margin: 0;
 
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "SeuratPro";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
