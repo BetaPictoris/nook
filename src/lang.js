@@ -6,7 +6,7 @@ const translations = {
     timeMorningGreet: "Good",
     timeMorning: "morning",
     timeNoonGreet: "Good",
-    timeNoon: "noon",
+    timeNoon: "day",
     timeAfternoongGreet: "Good",
     timeAfternoon: "afternoon",
     timeNightGreet: "Good",
