@@ -28,7 +28,7 @@ const translations = {
     webPort: "This is a web port of",
     animalSounds: "Animal Sounds",
     notAssociated:
-      "Not associated with or endorsed by Nintendo, Animal Sounds, or Animal Radio.",
+      'Not associated with or endorsed by Nintendo, Animal Sounds, or "Animal Radio".',
   },
 
   de: {
@@ -51,17 +51,17 @@ const translations = {
     gamePG: "Population Growing",
     gameWW: "Wild World",
 
-    weather: "Weather",
-    weatherClear: "Clear",
-    weatherRainy: "Rain",
-    weatherSnowy: "Snow",
+    weather: "Wetter",
+    weatherClear: "Klares",
+    weatherRainy: "Regen",
+    weatherSnowy: "Schnee",
 
-    darkMode: "Dark mode",
+    darkMode: "Dunkler Modus",
 
     webPort: "Dies ist eine webseite Übersetzung von",
     animalSounds: "Animal Sounds",
     notAssociated:
-      "Not associated with or endorsed by Nintendo, Animal Sounds, or Animal Radio.",
+      "Nicht verbunden mit oder gebilligt von Nintendo, Animal Sounds oder «Animal Radio»",
   },
 };
 
