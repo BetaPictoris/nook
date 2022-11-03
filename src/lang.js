@@ -23,6 +23,8 @@ const translations = {
     weatherRainy: "Rain",
     weatherSnowy: "Snow",
 
+    language: "Language",
+
     darkMode: "Dark mode",
 
     webPort: "This is a web port of",
@@ -55,6 +57,8 @@ const translations = {
     weatherClear: "Klares",
     weatherRainy: "Regen",
     weatherSnowy: "Schnee",
+    
+    language: "Sprache",
 
     darkMode: "Dunkler Modus",
 

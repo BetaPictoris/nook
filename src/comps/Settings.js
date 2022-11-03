@@ -21,6 +21,10 @@ export default function Settings() {
     sessionStorage.setItem("weather", event.target.value);
   };
 
+  const languageChange = (event) => {
+    sessionStorage.setItem("lang", event.target.value);
+  }
+
   const darkModeChange = (event) => {
     if (sessionStorage.getItem("darkMode") === "on") {
       sessionStorage.setItem("darkMode", "off");
@@ -87,6 +91,28 @@ export default function Settings() {
             value="snowy"
             control={<Radio />}
             label={getTranslation("weatherSnowy", lang)}
+          />
+        </RadioGroup>
+      </FormControl>
+      <FormControl>
+        <FormLabel id="languageFormLabel">
+          {getTranslation("language", lang)}
+        </FormLabel>
+        <RadioGroup
+          aria-labelledby="languageFormLabel"
+          defaultValue={sessionStorage.getItem("lang")}
+          name="languageForm"
+          onChange={languageChange}
+        >
+          <FormControlLabel
+            value="en"
+            control={<Radio />}
+            label="English"
+          />
+          <FormControlLabel
+            value="de"
+            control={<Radio />}
+            label="Deutsch"
           />
         </RadioGroup>
       </FormControl>
