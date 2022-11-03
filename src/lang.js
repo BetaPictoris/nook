@@ -11,7 +11,6 @@ const translations = {
     timeAfternoon: "afternoon",
     timeNightGreet: "Good",
     timeNight: "night",
-    timeDay: "day",
 
     game: "Game",
     gameNH: "New Horizons",
