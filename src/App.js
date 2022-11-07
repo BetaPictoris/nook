@@ -43,84 +43,68 @@ function App() {
   }
 
   React.useEffect(() => {
-    const timerID = setInterval(() => tick(), 1000);
+    const timerID = setInterval(() => {
+      setDate(new Date());
+
+      game = sessionStorage.getItem("game");
+      weather = sessionStorage.getItem("weather");
+  
+      urlWeather = weather;
+  
+      if (noWeatherSupport.indexOf(game) !== -1) {
+        urlWeather = "clear";
+      }
+  
+      if (playing) {
+        if (
+          audioPlayer.src !==
+          `${base}/ac/${game}/music/${urlWeather}/${date.getHours()}.ogg`
+        ) {
+          audioPlayer.src = `${base}/ac/${game}/music/${urlWeather}/${date.getHours()}.ogg`;
+          audioPlayer.load();
+          audioPlayer.play();
+        } else if (audioPlayer.pause) {
+          audioPlayer.play();
+        }
+  
+        if (weather === "rainy") {
+          audioPlayerRain.volume = 0.7;
+          audioPlayerRain.play();
+        } else {
+          audioPlayerRain.pause();
+        }
+      } else {
+        audioPlayer.pause()
+        audioPlayerRain.pause()
+      }  
+    }, 1000);
 
     return function cleanup() {
       clearInterval(timerID);
     };
   });
 
-  function tick() {
-    setDate(new Date());
-
-    game = sessionStorage.getItem("game");
-    weather = sessionStorage.getItem("weather");
-
-    urlWeather = weather;
-
-    if (noWeatherSupport.indexOf(game) !== -1) {
-      urlWeather = "clear";
-    }
-
-    if (playing) {
-      if (
-        audioPlayer.src !==
-        `${base}/ac/${game}/music/${urlWeather}/${date.getHours()}.ogg`
-      ) {
-        audioPlayer.src = `${base}/ac/${game}/music/${urlWeather}/${date.getHours()}.ogg`;
-        audioPlayer.load();
-        audioPlayer.play();
-      }
-
-      if (weather === "rainy") {
-        audioPlayerRain.volume = 0.7;
-        audioPlayerRain.play();
-      } else {
-        audioPlayerRain.pause();
-      }
-    }
-  }
-
   function playAudio() {
     if (audioPlayer.paused) {
-      audioPlayer.play();
+      setPlaying(true);
     } else {
-      audioPlayer.pause();
+      setPlaying(false);
     }
   }
 
-  function play() {
-    setPlaying(true);
-    if (weather === "rainy") {
-      audioPlayerRain.volume = 0.7;
-      audioPlayerRain.play();
-    } else {
-      audioPlayerRain.pause();
-    }
+  var ToD = null
+
+  if (date.getHours() >= 5 && date.getHours() <= 9) {
+    ToD = "morning";
+  } else if (date.getHours() >= 10 && date.getHours() <= 13) {
+    ToD = "noon";
+  } else if (date.getHours() >= 14 && date.getHours() <= 17) {
+    ToD = "afternoon";
+  } else {
+    ToD = "night";
   }
 
-  function pause() {
-    setPlaying(false);
-    audioPlayerRain.pause();
-  }
-
-  function getToD() {
-    var hour = date.getHours();
-
-    if (hour >= 5 && hour <= 9) {
-      return "morning";
-    } else if (hour >= 10 && hour <= 13) {
-      return "noon";
-    } else if (hour >= 14 && hour <= 17) {
-      return "afternoon";
-    } else {
-      return "night";
-    }
-  }
-
-  const ToD = getToD();
-
-  var themePrimary = "#555";
+  var themePrimary = null;
 
   if (ToD === "morning") {
     themePrimary = "#fda658";
@@ -179,7 +163,7 @@ function App() {
           sessionStorage.getItem("darkMode")
         }
       >
-        <audio id="audio" controls="" loop onPause={pause} onPlay={play}>
+        <audio id="audio" controls loop>
           <source
             id="oggSource"
             src={`${base}/ac/${game}/music/${urlWeather}/${date.getHours()}.ogg`}
@@ -187,7 +171,7 @@ function App() {
           ></source>
         </audio>
 
-        <audio id="audioRain" controls="" loop>
+        <audio id="audioRain" controls loop>
           <source
             id="oggRainSource"
             src={`${base}/sounds/rain.ogg`}
