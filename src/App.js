@@ -163,7 +163,7 @@ function App() {
           sessionStorage.getItem("darkMode")
         }
       >
-        <audio id="audio" controls loop>
+        <audio id="audio" loop>
           <source
             id="oggSource"
             src={`${base}/ac/${game}/music/${urlWeather}/${date.getHours()}.ogg`}
@@ -171,7 +171,7 @@ function App() {
           ></source>
         </audio>
 
-        <audio id="audioRain" controls loop>
+        <audio id="audioRain" loop>
           <source
             id="oggRainSource"
             src={`${base}/sounds/rain.ogg`}
