@@ -23,13 +23,14 @@ function App() {
   const [date, setDate] = React.useState(new Date());
   const [playing, setPlaying] = React.useState(false);
   const [page, setPage] = React.useState(0);
+  
+  const [game, setGame] = React.useState(sessionStorage.getItem("game"))
+  const [weather, setWeather] = React.useState(sessionStorage.getItem("weather"))
 
   var audioPlayer = document.getElementById("audio");
   var audioPlayerRain = document.getElementById("audioRain");
 
   var base = "https://cdn.ozx.me";
-  var game = sessionStorage.getItem("game");
-  var weather = sessionStorage.getItem("weather");
   var lang = sessionStorage.getItem("lang");
 
   // This is the weather that is used in the URL
@@ -46,21 +47,21 @@ function App() {
     const timerID = setInterval(() => {
       setDate(new Date());
 
-      game = sessionStorage.getItem("game");
-      weather = sessionStorage.getItem("weather");
+      setGame(sessionStorage.getItem("game"));
+      setWeather(sessionStorage.getItem("weather"));
   
-      urlWeather = weather;
+      let inUrlWeather = weather;
   
       if (noWeatherSupport.indexOf(game) !== -1) {
-        urlWeather = "clear";
+        inUrlWeather = "clear";
       }
   
       if (playing) {
         if (
           audioPlayer.src !==
-          `${base}/ac/${game}/music/${urlWeather}/${date.getHours()}.ogg`
+          `${base}/ac/${game}/music/${inUrlWeather}/${date.getHours()}.ogg`
         ) {
-          audioPlayer.src = `${base}/ac/${game}/music/${urlWeather}/${date.getHours()}.ogg`;
+          audioPlayer.src = `${base}/ac/${game}/music/${inUrlWeather}/${date.getHours()}.ogg`;
           audioPlayer.load();
           audioPlayer.play();
         } else if (audioPlayer.pause) {
