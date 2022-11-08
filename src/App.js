@@ -19,6 +19,8 @@ import getTranslation from "./lang";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+const cdnBaseURL = "https://cdn.ozx.me";
+
 function App() {
   const [date, setDate] = React.useState(new Date());
   const [playing, setPlaying] = React.useState(false);
@@ -30,7 +32,6 @@ function App() {
   var audioPlayer = document.getElementById("audio");
   var audioPlayerRain = document.getElementById("audioRain");
 
-  var base = "https://cdn.ozx.me";
   var lang = sessionStorage.getItem("lang");
 
   // This is the weather that is used in the URL
@@ -59,9 +60,9 @@ function App() {
       if (playing) {
         if (
           audioPlayer.src !==
-          `${base}/ac/${game}/music/${inUrlWeather}/${date.getHours()}.ogg`
+          `${cdnBaseURL}/ac/${game}/music/${inUrlWeather}/${date.getHours()}.ogg`
         ) {
-          audioPlayer.src = `${base}/ac/${game}/music/${inUrlWeather}/${date.getHours()}.ogg`;
+          audioPlayer.src = `${cdnBaseURL}/ac/${game}/music/${inUrlWeather}/${date.getHours()}.ogg`;
           audioPlayer.load();
           audioPlayer.play();
         } else if (audioPlayer.pause) {
@@ -167,7 +168,7 @@ function App() {
         <audio id="audio" loop>
           <source
             id="oggSource"
-            src={`${base}/ac/${game}/music/${urlWeather}/${date.getHours()}.ogg`}
+            src={`${cdnBaseURL}/ac/${game}/music/${urlWeather}/${date.getHours()}.ogg`}
             type="audio/ogg"
           ></source>
         </audio>
@@ -175,7 +176,7 @@ function App() {
         <audio id="audioRain" loop>
           <source
             id="oggRainSource"
-            src={`${base}/sounds/rain.ogg`}
+            src={`${cdnBaseURL}/sounds/rain.ogg`}
             type="audio/ogg"
           ></source>
         </audio>
