@@ -11,7 +11,7 @@ import Switch from "@mui/material/Switch";
 import getTranslation from "../lang";
 
 export default function Settings() {
-  var lang = sessionStorage.getItem("lang");
+  const lang = sessionStorage.getItem("lang");
 
   const gameChange = (event) => {
     sessionStorage.setItem("game", event.target.value);

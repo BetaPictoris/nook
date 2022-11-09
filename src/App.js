@@ -29,17 +29,17 @@ function App() {
   const [game, setGame] = React.useState(sessionStorage.getItem("game"))
   const [weather, setWeather] = React.useState(sessionStorage.getItem("weather"))
 
-  var audioPlayer = document.getElementById("audio");
-  var audioPlayerRain = document.getElementById("audioRain");
+  const audioPlayer = document.getElementById("audio");
+  const audioPlayerRain = document.getElementById("audioRain");
 
-  var lang = sessionStorage.getItem("lang");
-  var ToD = null
-  var themePrimary = null;
-  
+  const lang = sessionStorage.getItem("lang");
+  let ToD = null
+  let themePrimary = null;
+
   // This is the weather that is used in the URL
   // because some games don't have per-weather music, but, we can still use
   // rain/snow sounds.
-  var urlWeather = weather;
+  let urlWeather = weather;
   const noWeatherSupport = ["population-growing", "new-horizons"];
 
   if (noWeatherSupport.indexOf(game) !== -1) {
