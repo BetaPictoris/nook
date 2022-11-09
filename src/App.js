@@ -33,7 +33,9 @@ function App() {
   var audioPlayerRain = document.getElementById("audioRain");
 
   var lang = sessionStorage.getItem("lang");
-
+  var ToD = null
+  var themePrimary = null;
+  
   // This is the weather that is used in the URL
   // because some games don't have per-weather music, but, we can still use
   // rain/snow sounds.
@@ -94,8 +96,6 @@ function App() {
     }
   }
 
-  var ToD = null
-
   if (date.getHours() >= 5 && date.getHours() <= 9) {
     ToD = "morning";
   } else if (date.getHours() >= 10 && date.getHours() <= 13) {
@@ -105,8 +105,6 @@ function App() {
   } else {
     ToD = "night";
   }
-
-  var themePrimary = null;
 
   if (ToD === "morning") {
     themePrimary = "#fda658";
