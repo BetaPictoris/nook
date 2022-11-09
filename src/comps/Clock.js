@@ -24,8 +24,8 @@ export default function Clock(props) {
   return (
     <div className="Clock">
       <div className="ClockTime">
-        {date.getHours() > 12 ? date.getHours() - 12 : date.getHours()}
-        {date.getSeconds() % 2 === 0 ? ":" : ":"}
+        {date.getHours()}
+        :
         {date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()}
       </div>
       <div className="ClockPeriod">
