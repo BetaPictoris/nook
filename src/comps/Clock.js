@@ -7,18 +7,14 @@ export default function Clock(props) {
   const [date, setDate] = React.useState(new Date());
   var lang = sessionStorage.getItem("lang");
   var timeGreet = getTranslation(`${props.ToD}Greet`, lang);
-  
+
   React.useEffect(() => {
-    const timerID = setInterval(() => tick(), 1000);
+    const timerID = setInterval(() => setDate(new Date()), 1000);
 
     return function cleanup() {
       clearInterval(timerID);
     };
   });
-
-  function tick() {
-    setDate(new Date());
-  }
 
   return (
     <div className="Clock">
