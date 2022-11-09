@@ -21,7 +21,7 @@ export default function Clock(props) {
       <div className="ClockTime">
         {date.getHours()}
         :
-        {date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()}
+        {date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
       </div>
       <div className="ClockPeriod">
         {timeGreet}!

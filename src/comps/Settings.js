@@ -35,7 +35,7 @@ export default function Settings() {
 
   return (
     <div
-      className={"settingsCompDarkMode" + sessionStorage.getItem("darkMode")}
+      className={`settingsCompDarkMode${sessionStorage.getItem("darkMode")}`}
     >
       <FormControl>
         <FormLabel id="gameFormLabel">{getTranslation("game", lang)}</FormLabel>

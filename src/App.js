@@ -154,15 +154,7 @@ function App() {
       }
     >
       <div
-        className={
-          "App " +
-          ToD +
-          " page-" +
-          page +
-          " darkMode" +
-          sessionStorage.getItem("darkMode")
-        }
-      >
+        className={`App ${ToD} page-${page} darkMode${sessionStorage.getItem("darkMode")}`}>
         <audio id="audio" loop>
           <source
             id="oggSource"
