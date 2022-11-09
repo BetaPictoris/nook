@@ -184,7 +184,7 @@ function App() {
         <div className="Main">
           {page === 0 && (
             <div className="listenPage">
-              <Clock />
+              <Clock ToD={ToD} />
               <button className="mediaControl" onClick={playAudio}>
                 {playing ? <Pause /> : <PlayArrow />}
               </button>
