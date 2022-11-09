@@ -23,7 +23,7 @@ export default function Settings() {
     sessionStorage.setItem("lang", event.target.value);
   }
 
-  const darkModeChange = (event) => {
+  const darkModeChange = () => {
     if (sessionStorage.getItem("darkMode") === "on") {
       sessionStorage.setItem("darkMode", "off");
     } else {
