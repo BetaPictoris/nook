@@ -56,8 +56,38 @@ const translations = {
     webPort: "Dies ist eine webseite Übersetzung von",
     animalSounds: "Animal Sounds",
     notAssociated:
-      "Nicht verbunden mit oder gebilligt von Nintendo, Animal Sounds oder «Animal Radio»",
+      "Nicht verbunden mit oder gebilligt von Nintendo, Animal Sounds oder «Animal Radio».",
   },
+
+  fr: {
+    listenTabTitle: "Écouter",
+    settingsTabTitle: "Réglages",
+
+    morningGreet: "Bonjour",
+    noonGreet: "Bonjour",
+    afternoongGreet: "Bonjour",
+    nightGreet: "Bonsoir",
+
+    game: "Jeu vidèo",
+    gameNH: "New Horizons",
+    gameNL: "New Leaf",
+    gamePG: "Population Growing",
+    gameWW: "Wild World",
+
+    weather: "Le temps",
+    weatherClear: "Clair",
+    weatherRainy: "Pleut",
+    weatherSnowy: "Neige",
+    
+    language: "Langue",
+
+    darkMode: "Mode sombre",
+
+    webPort: "De la porte web",
+    animalSounds: "Animal Sounds",
+    notAssociated:
+      "Pas associé avec Nintendo, Animal Sounds, ou «Animal Radio».",
+  }
 };
 
 export default function getTranslation(key, lang) {

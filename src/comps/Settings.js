@@ -114,6 +114,11 @@ export default function Settings() {
             control={<Radio />}
             label="Deutsch"
           />
+          <FormControlLabel
+            value="fr"
+            control={<Radio />}
+            label="Français"
+          />
         </RadioGroup>
       </FormControl>
       <FormControl>
