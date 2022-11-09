@@ -32,7 +32,7 @@ function App() {
   const audioPlayer = document.getElementById("audio");
   const audioPlayerRain = document.getElementById("audioRain");
 
-  let lang = sessionStorage.getItem("lang");
+  const lang = sessionStorage.getItem("lang");
   let ToD = null
   let themePrimary = null;
 
