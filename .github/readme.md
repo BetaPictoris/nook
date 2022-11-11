@@ -10,7 +10,7 @@ Listen to Animal Crossing's hourly music from your web browser.
     - New Leaf
     - Population Growing
     - Wild World
- - 💬 In English and German (Deutsch).
+ - 💬 In English, German (Deutsch), and French (Français).
  - 🌧️ Weather specific music for rain and snow (with rain sounds). 
  - 🌙 Dark mode.
 
