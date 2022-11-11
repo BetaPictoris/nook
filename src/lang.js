@@ -5,7 +5,7 @@ const translations = {
 
     morningGreet: "Good morning",
     noonGreet: "Good day",
-    afternoongGreet: "Good afternoon",
+    afternoonGreet: "Good afternoon",
     nightGreet: "Good night",
 
     game: "Game",
@@ -35,7 +35,7 @@ const translations = {
 
     morningGreet: "Guten Morgen",
     noonGreet: "Guten Tag",
-    afternoongGreet: "Guten Tag",
+    afternoonGreet: "Guten Tag",
     nightGreet: "Gute Nacht",
 
     game: "Videospiel",
@@ -65,7 +65,7 @@ const translations = {
 
     morningGreet: "Bonjour",
     noonGreet: "Bonjour",
-    afternoongGreet: "Bonjour",
+    afternoonGreet: "Bonjour",
     nightGreet: "Bonsoir",
 
     game: "Jeu vidèo",
