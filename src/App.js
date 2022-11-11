@@ -32,6 +32,8 @@ function App() {
   const audioPlayer = document.getElementById("audio");
   const audioPlayerRain = document.getElementById("audioRain");
 
+  const gameNames = {"new-horizons": "New Horizons", "new-leaf": "New Leaf", "population-growing": "Population Growing", "wild-world": "Wild World"}
+
   const lang = sessionStorage.getItem("lang");
   let ToD = null
   let themePrimary = null;
@@ -64,6 +66,12 @@ function App() {
           audioPlayer.src !==
           `${cdnBaseURL}/ac/${game}/music/${inUrlWeather}/${date.getHours()}.ogg`
         ) {
+          if ('mediaSession' in navigator) {
+            navigator.mediaSession.metadata = new MediaMetadata({
+              title: `Animal Crossing: ${gameNames[sessionStorage.getItem("game")]}`,
+            });
+          }
+          
           audioPlayer.src = `${cdnBaseURL}/ac/${game}/music/${inUrlWeather}/${date.getHours()}.ogg`;
           audioPlayer.load();
           audioPlayer.play();
