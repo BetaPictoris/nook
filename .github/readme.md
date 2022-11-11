@@ -1,4 +1,4 @@
-# Nook [![Deploy to Github Pages](https://github.com/BetaPictoris/nook/actions/workflows/deploy.yml/badge.svg)](https://github.com/BetaPictoris/nook/actions/workflows/deploy.yml)
+# Nook 
 
 Listen to Animal Crossing's hourly music from your web browser.
 
