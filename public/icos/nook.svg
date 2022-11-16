@@ -1,9 +1,9 @@
 <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<path d="M0 8.00001C0 3.58173 3.58172 0 8 0H212C216.418 0 220 3.58172 220 8V212C220 216.418 216.418 220 212 220H8.00001C3.58173 220 0 216.418 0 212V8.00001Z" fill="#1E1E2E"/>
+<path d="M0 0H220V220H0V0Z" fill="#1E1E2E"/>
 <rect x="1" width="194" height="146" fill="url(#pattern0)" style="mix-blend-mode:overlay"/>
 <rect x="26" y="154" width="194" height="62" fill="url(#pattern1)" style="mix-blend-mode:overlay"/>
 <circle cx="110" cy="110" r="36" fill="white"/>
-<path d="M124.25 110.259C124.917 110.644 124.917 111.606 124.25 111.991L101.938 124.873C101.271 125.258 100.438 124.777 100.438 124.007V98.2429C100.438 97.4731 101.271 96.9919 101.937 97.3768L124.25 110.259Z" fill="#181825"/>
+<path d="M124.25 110.259C124.917 110.644 124.917 111.606 124.25 111.991L101.938 124.873C101.271 125.258 100.438 124.777 100.438 124.007V98.2429C100.438 97.4731 101.271 96.9919 101.938 97.3768L124.25 110.259Z" fill="#181825"/>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_163_203" transform="translate(0 -0.399996) scale(0.00319489 0.00424526)"/>
