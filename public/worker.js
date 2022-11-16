@@ -5,32 +5,21 @@ var urlsToCache = [
   
   'https://cdn.ozx.me/fonts/Fontworks/Japanese/Round-Gothic/SeuratPro-B.otf',
   'https://cdn.ozx.me/fonts/Fontworks/Japanese/Gothic/RodinBokutohPro-EB.otf',
-
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/0.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/1.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/2.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/3.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/4.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/5.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/6.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/7.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/8.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/9.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/10.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/11.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/12.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/13.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/14.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/15.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/16.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/17.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/18.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/19.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/20.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/21.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/22.ogg',
-  'https://cdn.ozx.me/ac/new-horizons/music/clear/23.ogg',
+  'https://cdn.ozx.me/sounds/rain.ogg',
 ];
+
+const games = ["new-horizons", "new-leaf", "population-growing", "wild-world"]
+const noWeatherSupport = ["population-growing", "new-horizons"];
+
+for (let i = 0; i < games.length; i++) {
+  for (let x = 0; i < 24; x++) {
+    urlsToCache.push("https://cdn.ozx.me/ac/" + games[i] + "/music/clear/" + x + ".ogg")
+    if (!noWeatherSupport.includes(games[i])) {
+      urlsToCache.push("https://cdn.ozx.me/ac/" + games[i] + "/music/rainy/" + x + ".ogg")
+      urlsToCache.push("https://cdn.ozx.me/ac/" + games[i] + "/music/snowy/" + x + ".ogg")
+    }
+  }
+}
 
 // Install a service worker
 self.addEventListener('install', event => {
