@@ -3,9 +3,9 @@
   "name": "Nook Tunes",
   "icons": [
     {
-      "src": "%PUBLIC_URL%/Radio.svg",
-      "sizes": "64x64 32x32 24x24 16x16 192x192 512x512",
-      "type": "image/svg+xml"
+      "src": "%PUBLIC_URL%/favico.png",
+      "sizes": "120x120",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
