@@ -33,7 +33,6 @@ var urlsToCache = [
   'https://cdn.ozx.me/ac/new-horizons/music/clear/23.ogg',
   'https://cdn.ozx.me/ac/new-leaf/music/clear/0.ogg',
   'https://cdn.ozx.me/ac/new-leaf/music/rainy/0.ogg',
-  'https://cdn.ozx.me/ac/new-leaf/music/snowy/0.ogg',
   'https://cdn.ozx.me/ac/new-leaf/music/clear/1.ogg',
   'https://cdn.ozx.me/ac/new-leaf/music/rainy/1.ogg',
   'https://cdn.ozx.me/ac/new-leaf/music/snowy/1.ogg',
