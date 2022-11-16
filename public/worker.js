@@ -1,9 +1,12 @@
-var CACHE_NAME = 'pwa-task-manager';
+var CACHE_NAME = 'nook-pwa';
 var urlsToCache = [
   '/',
+  '/index.html',
   
   'https://cdn.ozx.me/fonts/Fontworks/Japanese/Round-Gothic/SeuratPro-B.otf',
-  'https://cdn.ozx.me/fonts/Fontworks/Japanese/Gothic/RodinBokutohPro-EB.otf'
+  'https://cdn.ozx.me/fonts/Fontworks/Japanese/Gothic/RodinBokutohPro-EB.otf',
+
+  'https://cdn.ozx.me/ac/nh/9.',
 ];
 
 // Install a service worker
@@ -34,17 +37,14 @@ self.addEventListener('fetch', event => {
 });
 
 // Update a service worker
-self.addEventListener('activate', event => {
-  var cacheWhitelist = ['pwa-task-manager'];
+self.addEventListener('install', function(event) {
+  // Perform install steps
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
+  caches.open(CACHE_NAME)
+    .then(function(cache) {
+      console.log('Opened cache');
+      return cache.addAll(urlsToCache);
     })
   );
+  self.skipWaiting();
 });
