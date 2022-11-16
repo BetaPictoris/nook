@@ -115,13 +115,13 @@ function App() {
   }
 
   if (ToD === "morning") {
-    themePrimary = "#fda658";
+    themePrimary = "#20a9e0";
   } else if (ToD === "noon") {
-    themePrimary = "#58a2fd";
+    themePrimary = "#ecbf3c";
   } else if (ToD === "afternoon") {
-    themePrimary = "#6358fd";
+    themePrimary = "#ecbf3c";
   } else if (ToD === "night") {
-    themePrimary = "#3d5c9b";
+    themePrimary = "#517bcc";
   }
 
   const darkTheme = createTheme({
