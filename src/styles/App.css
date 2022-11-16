@@ -55,6 +55,10 @@
   bottom: 0px;
 }
 
+.bottomNav {
+  border-radius: 10px 10px;
+}
+
 /* settingsPage styles */
 .settingsCompDarkModeoff {
   background-image: linear-gradient(#eee, #fff);
@@ -72,7 +76,7 @@
 
   padding-top: 20px;
 
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 10px 10px;
 }
 
 /* Dark mode */
