@@ -3,8 +3,23 @@
   "name": "Nook Tunes",
   "icons": [
     {
-      "src": "%PUBLIC_URL%/favico.png",
-      "sizes": "120x120",
+      "src": "%PUBLIC_URL%/nook.svg",
+      "sizes": "16x16 32x32 64x64 128x128",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "%PUBLIC_URL%/nook@1x.png",
+      "sizes": "220x220",
+      "type": "image/png"
+    },
+    {
+      "src": "%PUBLIC_URL%/nook@2x.png",
+      "sizes": "440x440",
+      "type": "image/png"
+    },
+    {
+      "src": "%PUBLIC_URL%/nook@3x.png",
+      "sizes": "660x660",
       "type": "image/png"
     }
   ],
