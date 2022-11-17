@@ -19,7 +19,7 @@ import getTranslation from "./lang";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const cdnBaseURL = "https://cdn.ozx.me";
+const cdnBaseURL = ""; // Leave blank for current host
 
 function App() {
   const [date, setDate] = React.useState(new Date());
