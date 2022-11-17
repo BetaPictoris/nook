@@ -124,6 +124,8 @@ function App() {
     themePrimary = "#517bcc";
   }
 
+  document.querySelector("meta[name=theme-color]").setAttribute("content", themePrimary);
+
   const darkTheme = createTheme({
     palette: {
       type: "dark",
