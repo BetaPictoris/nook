@@ -23,8 +23,14 @@
     {
       "src": "/icos/nook@3x.jpg",
       "sizes": "660x660",
-      "purpose": "maskable",
+      "purpose": "any",
       "type": "image/jpeg"
+    },
+    {
+      "src": "/icos/nook@3x.png",
+      "sizes": "660x660",
+      "purpose": "any",
+      "type": "image/png"
     }
   ],
   "start_url": "/",
