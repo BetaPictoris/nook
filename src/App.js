@@ -19,7 +19,7 @@ import getTranslation from "./lang";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const cdnBaseURL = ""; // Leave blank for current host
+const cdnBaseURL = "https://cdn.ozx.me";
 
 function App() {
   const [date, setDate] = React.useState(new Date());
@@ -123,8 +123,6 @@ function App() {
   } else if (ToD === "night") {
     themePrimary = "#517bcc";
   }
-
-  document.querySelector("meta[name=theme-color]").setAttribute("content", themePrimary);
 
   const darkTheme = createTheme({
     palette: {

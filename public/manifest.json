@@ -3,39 +3,13 @@
   "name": "Nook Tunes",
   "icons": [
     {
-      "src": "/icos/nook.svg",
-      "sizes": "16x16 32x32 64x64 128x128 512x512",
-      "purpose": "maskable",
-      "type": "image/svg+xml"
-    },
-    {
-      "src": "/icos/nook@1x.jpg",
-      "sizes": "220x220",
-      "purpose": "maskable",
-      "type": "image/jpeg"
-    },
-    {
-      "src": "/icos/nook@2x.jpg",
-      "sizes": "440x440",
-      "purpose": "maskable",
-      "type": "image/jpeg"
-    },
-    {
-      "src": "/icos/nook@3x.jpg",
-      "sizes": "660x660",
-      "purpose": "any",
-      "type": "image/jpeg"
-    },
-    {
-      "src": "/icos/nook@3x.png",
-      "sizes": "660x660",
-      "purpose": "any",
+      "src": "%PUBLIC_URL%/favico.png",
+      "sizes": "120x120",
       "type": "image/png"
     }
   ],
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
-
-  "background_color": "#da5b48",
-  "theme_color": "#ecbf3c"
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }
