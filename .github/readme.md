@@ -16,4 +16,4 @@ Listen to Animal Crossing's hourly music from your web browser.
 
 ---
 
-[![wiki](https://cdn.ozx.me/betapictoris/header.svg)](https://github.com/BetaPictoris)
+[![BetaPictoris](https://cdn.ozx.me/betapictoris/header.svg)](https://github.com/BetaPictoris)
