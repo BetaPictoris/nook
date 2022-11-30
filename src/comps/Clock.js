@@ -3,6 +3,8 @@ import "../styles/Clock.css";
 
 import getTranslation from "../lang";
 
+// Clock
+// Clock comp for main page
 export default function Clock(props) {
   const [date, setDate] = React.useState(new Date());
   const lang = sessionStorage.getItem("lang");

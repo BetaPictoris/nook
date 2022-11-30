@@ -90,6 +90,11 @@ const translations = {
   }
 };
 
+/*
+ * getTranslation
+ * Takes a key (of `translations`.lang) and a lang (of `translations`)
+ * and returns the value as a string.
+ */
 export default function getTranslation(key, lang) {
   return translations[lang][key];
 }

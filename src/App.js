@@ -21,6 +21,10 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const cdnBaseURL = "https://cdn.ozx.me";
 
+/* 
+ * App
+ * Main app content and logic
+ */
 function App() {
   const [date, setDate] = React.useState(new Date());
   const [playing, setPlaying] = React.useState(false);
@@ -96,6 +100,10 @@ function App() {
     };
   });
 
+  /*
+   * playAudio()
+   * Toggle playing state
+   */
   function playAudio() {
     if (audioPlayer.paused) {
       setPlaying(true);

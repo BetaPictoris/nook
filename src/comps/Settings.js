@@ -8,21 +8,37 @@ import Switch from "@mui/material/Switch";
 
 import getTranslation from "../lang";
 
+/*
+ * Settings
+ * Settings page
+ */
 export default function Settings() {
   const lang = sessionStorage.getItem("lang");
-
+  
+  // gameChange settings event
+  // When the game settings option changes update the session's storage
+  // to have the new value.
   const gameChange = (event) => {
     sessionStorage.setItem("game", event.target.value);
   };
 
+  // weatherChange settings event
+  // When the weather settings option changes update the session's storage
+  // to have the new value.
   const weatherChange = (event) => {
     sessionStorage.setItem("weather", event.target.value);
   };
 
+  // languageChange settings event
+  // When the language settings option changes update the session's storage
+  // to have the new value.
   const languageChange = (event) => {
     sessionStorage.setItem("lang", event.target.value);
   }
 
+  // darkModeChange settings event
+  // When the darkMode settings option changes update the session's storage to
+  // have the new value.
   const darkModeChange = () => {
     if (sessionStorage.getItem("darkMode") === "on") {
       sessionStorage.setItem("darkMode", "off");
