@@ -46,7 +46,7 @@ function App() {
   // because some games don't have per-weather music, but, we can still use
   // rain/snow sounds.
   let urlWeather = weather;
-  const noWeatherSupport = ["population-growing", "new-horizons"];
+  const noWeatherSupport = ["population-growing"];
 
   if (noWeatherSupport.indexOf(game) !== -1) {
     urlWeather = "clear";
