@@ -6,8 +6,11 @@ import PlayCircleSharp from "@mui/icons-material/PlayCircleSharp";
 import Settings from "@mui/icons-material/Settings";
 
 import getTranslation from "../lang";
-const lang = sessionStorage.getItem("lang");
 
+/*
+  BottomNav
+  The bottom app navigation menu
+*/
 export default function BottomNav(props) {
   return (
     <Box className="bottomNavBox">
@@ -18,14 +21,14 @@ export default function BottomNav(props) {
         onChange={props.onUpdate}
       >
         <BottomNavigationAction
-          label={getTranslation("listenTabTitle", lang)}
+          label={getTranslation("listenTabTitle", props.lang)}
           icon={<PlayCircleSharp />}
         />
         <BottomNavigationAction
-          label={getTranslation("settingsTabTitle", lang)}
+          label={getTranslation("settingsTabTitle", props.lang)}
           icon={<Settings />}
         />
       </BottomNavigation>
     </Box>
-  )
+  );
 }

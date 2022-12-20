@@ -8,13 +8,15 @@ import Switch from "@mui/material/Switch";
 
 import getTranslation from "../lang";
 
+import "./styles/Settings.css";
+
 /*
  * Settings
  * Settings page
  */
-export default function Settings() {
+export default function SettingsPage() {
   const lang = sessionStorage.getItem("lang");
-  
+
   // gameChange settings event
   // When the game settings option changes update the session's storage
   // to have the new value.
@@ -34,7 +36,7 @@ export default function Settings() {
   // to have the new value.
   const languageChange = (event) => {
     sessionStorage.setItem("lang", event.target.value);
-  }
+  };
 
   // darkModeChange settings event
   // When the darkMode settings option changes update the session's storage to
@@ -49,13 +51,15 @@ export default function Settings() {
 
   return (
     <div
-      className={`settingsCompDarkMode${sessionStorage.getItem("darkMode")}`}
+      className={`settingsCompDarkMode settingsCompDarkMode${sessionStorage.getItem(
+        "darkMode"
+      )}`}
     >
       <FormControl>
         <FormLabel id="gameFormLabel">{getTranslation("game", lang)}</FormLabel>
         <RadioGroup
           aria-labelledby="gameFormLabel"
-          defaultValue={sessionStorage.getItem("game")}
+          value={sessionStorage.getItem("game")}
           name="gameForm"
           onChange={gameChange}
         >
@@ -87,7 +91,7 @@ export default function Settings() {
         </FormLabel>
         <RadioGroup
           aria-labelledby="weatherFormLabel"
-          defaultValue={sessionStorage.getItem("weather")}
+          value={sessionStorage.getItem("weather")}
           name="weatherForm"
           onChange={weatherChange}
         >
@@ -114,36 +118,18 @@ export default function Settings() {
         </FormLabel>
         <RadioGroup
           aria-labelledby="languageFormLabel"
-          defaultValue={sessionStorage.getItem("lang")}
+          value={sessionStorage.getItem("lang")}
           name="languageForm"
           onChange={languageChange}
         >
-          <FormControlLabel
-            value="en"
-            control={<Radio />}
-            label="English"
-          />
-          <FormControlLabel
-            value="de"
-            control={<Radio />}
-            label="Deutsch"
-          />
-          <FormControlLabel
-            value="fr"
-            control={<Radio />}
-            label="Français"
-          />
+          <FormControlLabel value="en" control={<Radio />} label="English" />
+          <FormControlLabel value="de" control={<Radio />} label="Deutsch" />
+          <FormControlLabel value="fr" control={<Radio />} label="Français" />
         </RadioGroup>
       </FormControl>
       <FormControl>
         <FormControlLabel
-          control={
-            sessionStorage.getItem("darkMode") === "on" ? (
-              <Switch defaultChecked />
-            ) : (
-              <Switch />
-            )
-          }
+          control={<Switch value={sessionStorage.getItem("darkMode")} />}
           onChange={darkModeChange}
           label={getTranslation("darkMode", lang)}
         />
@@ -153,7 +139,7 @@ export default function Settings() {
         <a href="https://twitter.com/AnimalRadio_App">
           {getTranslation("animalSounds", lang)}
         </a>
-        .<br></br>
+        .<br />
         {getTranslation("notAssociated", lang)}
       </p>
     </div>

@@ -1,5 +1,5 @@
 const translations = {
-  en: {
+  "en": {
     listenTabTitle: "Listen",
     settingsTabTitle: "Settings",
 
@@ -29,7 +29,7 @@ const translations = {
       'Not associated with or endorsed by Nintendo, Animal Sounds, or "Animal Radio".',
   },
 
-  de: {
+  "de": {
     listenTabTitle: "Hören",
     settingsTabTitle: "Einstellungen",
 
@@ -59,7 +59,7 @@ const translations = {
       "Nicht verbunden mit oder gebilligt von Nintendo, Animal Sounds oder «Animal Radio».",
   },
 
-  fr: {
+  "fr": {
     listenTabTitle: "Écouter",
     settingsTabTitle: "Réglages",
 
