@@ -4,18 +4,14 @@ import "./styles/App.css";
 import "./styles/Player.css";
 
 import Clock from "./comps/Clock";
-import SettingsPage from "./comps/Settings";
 
-import Box from "@mui/material/Box";
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import SettingsPage from "./pages/Settings";
 
-import PlayCircleSharp from "@mui/icons-material/PlayCircleSharp";
-import Settings from "@mui/icons-material/Settings";
+import BottomNav from "./comps/BottomNav";
+
 import PlayArrow from "@mui/icons-material/PlayArrow";
 import Pause from "@mui/icons-material/Pause";
 
-import getTranslation from "./lang";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -29,16 +25,15 @@ function App() {
   const [date, setDate] = React.useState(new Date());
   const [playing, setPlaying] = React.useState(false);
   const [page, setPage] = React.useState(0);
-  
+
   const [game, setGame] = React.useState(sessionStorage.getItem("game"))
   const [weather, setWeather] = React.useState(sessionStorage.getItem("weather"))
 
   const audioPlayer = document.getElementById("audio");
   const audioPlayerRain = document.getElementById("audioRain");
 
-  const gameNames = {"new-horizons": "New Horizons", "new-leaf": "New Leaf", "population-growing": "Population Growing", "wild-world": "Wild World"}
+  const gameNames = { "new-horizons": "New Horizons", "new-leaf": "New Leaf", "population-growing": "Population Growing", "wild-world": "Wild World" }
 
-  const lang = sessionStorage.getItem("lang");
   let ToD = null
   let themePrimary = null;
 
@@ -58,13 +53,13 @@ function App() {
 
       setGame(sessionStorage.getItem("game"));
       setWeather(sessionStorage.getItem("weather"));
-  
+
       let inUrlWeather = weather;
-  
+
       if (noWeatherSupport.indexOf(game) !== -1) {
         inUrlWeather = "clear";
       }
-  
+
       if (playing) {
         if (
           audioPlayer.src !==
@@ -75,14 +70,14 @@ function App() {
               title: `Animal Crossing: ${gameNames[sessionStorage.getItem("game")]}`,
             });
           }
-          
+
           audioPlayer.src = `${cdnBaseURL}/ac/${game}/music/${inUrlWeather}/${date.getHours()}.ogg`;
           audioPlayer.load();
           audioPlayer.play();
         } else if (audioPlayer.pause) {
           audioPlayer.play();
         }
-  
+
         if (weather === "rainy") {
           audioPlayerRain.volume = 0.7;
           audioPlayerRain.play();
@@ -92,7 +87,7 @@ function App() {
       } else {
         audioPlayer.pause()
         audioPlayerRain.pause()
-      }  
+      }
     }, 1000);
 
     return function cleanup() {
@@ -202,25 +197,8 @@ function App() {
             </div>
           )}
         </div>
-        <Box className="bottomNavBox">
-          <BottomNavigation
-            showLabels
-            className="bottomNav"
-            value={page}
-            onChange={(event, newValue) => {
-              setPage(newValue);
-            }}
-          >
-            <BottomNavigationAction
-              label={getTranslation("listenTabTitle", lang)}
-              icon={<PlayCircleSharp />}
-            />
-            <BottomNavigationAction
-              label={getTranslation("settingsTabTitle", lang)}
-              icon={<Settings />}
-            />
-          </BottomNavigation>
-        </Box>
+
+        <BottomNav page={page} onUpdate={(event, newValue) => { setPage(newValue); }} />
       </div>
     </ThemeProvider>
   );
