@@ -10,8 +10,8 @@ import SettingsPage from "./pages/Settings";
 import BottomNav from "./comps/BottomNav";
 import AudioController from "./comps/AudioController/AudioController";
 
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-
+import { ThemeProvider } from "@mui/material/styles";
+import { getTheme, getToD } from "./theme"
 
 /* 
  * App
@@ -20,7 +20,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 function App() {
   const [date, setDate] = React.useState(new Date());
   const [page, setPage] = React.useState(0);
-
+  
+  const [darkMode, setDarkMode] = React.useState(sessionStorage.getItem("darkMode"))
   const [game, setGame] = React.useState(sessionStorage.getItem("game"))
   const [weather, setWeather] = React.useState(sessionStorage.getItem("weather"))
 
@@ -30,6 +31,7 @@ function App() {
       setDate(new Date());
       setGame(sessionStorage.getItem("game"));
       setWeather(sessionStorage.getItem("weather"));
+      setDarkMode(sessionStorage.getItem("darkMode"))
     }, 1000)
     
     return function cleanup() {
@@ -37,68 +39,19 @@ function App() {
     };
   })  
 
-  let ToD = null
-  let themePrimary = null;
-
-  if (date.getHours() >= 5 && date.getHours() <= 9) {
-    ToD = "morning";
-  } else if (date.getHours() >= 10 && date.getHours() <= 13) {
-    ToD = "noon";
-  } else if (date.getHours() >= 14 && date.getHours() <= 17) {
-    ToD = "afternoon";
-  } else {
-    ToD = "night";
+  let themeType = "light"
+  if (darkMode === "on") {
+    themeType = "dark"
   }
-
-  if (ToD === "morning") {
-    themePrimary = "#20a9e0";
-  } else if (ToD === "noon") {
-    themePrimary = "#ecbf3c";
-  } else if (ToD === "afternoon") {
-    themePrimary = "#ecbf3c";
-  } else if (ToD === "night") {
-    themePrimary = "#517bcc";
-  }
-
-  const darkTheme = createTheme({
-    palette: {
-      type: "dark",
-      primary: {
-        main: themePrimary,
-      },
-      secondary: {
-        main: "#555",
-      },
-      background: {
-        paper: "#000000",
-        default: "#000000",
-      },
-      text: {
-        primary: "#c5c5c5",
-        secondary: "#c5c5c5",
-        hint: "#c5c5c5",
-        disabled: "#c5c5c5",
-      },
-    },
-  });
-
-  const lightTheme = createTheme({
-    palette: {
-      type: "light",
-      primary: {
-        main: themePrimary,
-      },
-    },
-  });
+  const ToD = getToD(date.getHours())
+  const theme = getTheme(themeType, date.getHours())
 
   return (
     <ThemeProvider
-      theme={
-        sessionStorage.getItem("darkMode") === "on" ? darkTheme : lightTheme
-      }
+      theme={theme}
     >
       <div
-        className={`App ${ToD} page-${page} darkMode${sessionStorage.getItem("darkMode")}`}>
+        className={`App ${ToD} page-${page} darkMode${darkMode}`}>
         <div className="Main">
           <div className="page">
           {page === 0 && (
