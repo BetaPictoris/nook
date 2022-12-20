@@ -9,12 +9,6 @@ import "./styles/Player.css";
 export default function AudioController(props) {
   const [playing, setPlaying] = React.useState(false);
 
-  React.useEffect(() => {
-    if (playing) {
-      play();
-    }
-  }, [playing, props.game, props.weather, props.hour]);
-
   // Play the audio players
   function play() {
     const players = [
@@ -44,7 +38,14 @@ export default function AudioController(props) {
     setPlaying(false);
   }
 
+  // Set metadata session
   navigator.mediaSession.metadata = getMetadata(props.game);
+
+  React.useEffect(() => {
+    if (playing) {
+      play();
+    }
+  }, [playing, props.game, props.weather, props.hour]);
 
   return (
     <>
