@@ -57,7 +57,7 @@ function App() {
       <div className={`App ${ToD} page-${page} darkMode${darkMode}`}>
         <div className="Main">
           <div className="page">
-            {page === 0 && <Clock ToD={ToD} />}
+            {page === 0 && <Clock lang={lang} ToD={ToD} date={date} />}
             {page === 1 && <SettingsPage />}
             <AudioController
               game={game}
