@@ -139,7 +139,7 @@ export default function SettingsPage() {
         <a href="https://twitter.com/AnimalRadio_App">
           {getTranslation("animalSounds", lang)}
         </a>
-        .<br></br>
+        .<br />
         {getTranslation("notAssociated", lang)}
       </p>
     </div>
