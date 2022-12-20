@@ -7,24 +7,29 @@ import PauseIco from "@mui/icons-material/Pause";
 export default function AudioController(props) {
   const [playing, setPlaying] = React.useState(false);
 
+  React.useEffect(() => {
+    if (playing) { play() }
+  }, [props.game, props.weather, props.hour])
+
   // Play the audio players
   function play() {
-    const gameMusicPlayer = document.getElementById("gameMusicPlayer");
-    const weatherPlayer = document.getElementById("weatherPlayer");
+    const players = [document.getElementById("gameMusicPlayer"), document.getElementById("weatherPlayer")]
     
-    gameMusicPlayer.play()
-    weatherPlayer.play()
+    for (let i in players) {
+      players[i].load()
+      players[i].play()
+    }
 
     setPlaying(true)
   }
 
   // Pause the audio players
   function pause() {
-    const gameMusicPlayer = document.getElementById("gameMusicPlayer");
-    const weatherPlayer = document.getElementById("weatherPlayer");
+    const players = [document.getElementById("gameMusicPlayer"), document.getElementById("weatherPlayer")]
     
-    gameMusicPlayer.pause()
-    weatherPlayer.pause()
+    for (let i in players) {
+      players[i].pause()
+    }
 
     setPlaying(false)
   }
