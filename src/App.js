@@ -1,12 +1,10 @@
 import React from "react";
 
 import "./styles/App.css";
-import "./styles/Player.css";
-
-import Clock from "./comps/Clock";
 
 import SettingsPage from "./pages/Settings";
 
+import Clock from "./comps/Clock";
 import BottomNav from "./comps/BottomNav";
 import AudioController from "./comps/AudioController/AudioController";
 

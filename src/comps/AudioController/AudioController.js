@@ -1,40 +1,50 @@
 import React from "react";
-import { getURL, getWeatherURL, getMetadata } from "./data"
+import { getURL, getWeatherURL, getMetadata } from "./data";
 
 import PlayIco from "@mui/icons-material/PlayArrow";
 import PauseIco from "@mui/icons-material/Pause";
+
+import "./styles/Player.css";
 
 export default function AudioController(props) {
   const [playing, setPlaying] = React.useState(false);
 
   React.useEffect(() => {
-    if (playing) { play() }
-  }, [props.game, props.weather, props.hour])
+    if (playing) {
+      play();
+    }
+  }, [playing, props.game, props.weather, props.hour]);
 
   // Play the audio players
   function play() {
-    const players = [document.getElementById("gameMusicPlayer"), document.getElementById("weatherPlayer")]
-    
+    const players = [
+      document.getElementById("gameMusicPlayer"),
+      document.getElementById("weatherPlayer"),
+    ];
+
     for (let i in players) {
-      players[i].load()
-      players[i].play()
+      players[i].load();
+      players[i].play();
     }
 
-    setPlaying(true)
+    setPlaying(true);
   }
 
   // Pause the audio players
   function pause() {
-    const players = [document.getElementById("gameMusicPlayer"), document.getElementById("weatherPlayer")]
-    
+    const players = [
+      document.getElementById("gameMusicPlayer"),
+      document.getElementById("weatherPlayer"),
+    ];
+
     for (let i in players) {
-      players[i].pause()
+      players[i].pause();
     }
 
-    setPlaying(false)
+    setPlaying(false);
   }
 
-  navigator.mediaSession.metadata = getMetadata(props.game)
+  navigator.mediaSession.metadata = getMetadata(props.game);
 
   return (
     <>
@@ -46,17 +56,17 @@ export default function AudioController(props) {
       </audio>
 
       <audio id="weatherPlayer" loop>
-        <source 
+        <source
           src={getWeatherURL(props.game, props.weather)}
           type="audio/ogg"
         />
       </audio>
 
-      { !props.hidden&&
+      {!props.hidden && (
         <button className="mediaControl" onClick={playing ? pause : play}>
           {playing ? <PauseIco /> : <PlayIco />}
         </button>
-      }
+      )}
     </>
-  )
+  );
 }
