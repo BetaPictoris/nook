@@ -47,9 +47,11 @@ export default function AudioController(props) {
         />
       </audio>
 
-      <button className="mediaControl" onClick={ playing ? pause : play }>
-        {playing ? <PauseIco /> : <PlayIco />}
-      </button>
+      { !props.hidden&&
+        <button className="mediaControl" onClick={playing ? pause : play}>
+          {playing ? <PauseIco /> : <PlayIco />}
+        </button>
+      }
     </>
   )
 }

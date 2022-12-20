@@ -100,21 +100,20 @@ function App() {
       <div
         className={`App ${ToD} page-${page} darkMode${sessionStorage.getItem("darkMode")}`}>
         <div className="Main">
+          <div className="page">
           {page === 0 && (
-            <div className="listenPage">
               <Clock ToD={ToD} />
-              <AudioController
-                game={game}
-                weather={weather}
-                hour={date.getHours()}
-              />
-            </div>
           )}
           {page === 1 && (
-            <div className="settingsPage">
               <SettingsPage />
-            </div>
           )}
+          <AudioController
+              game={game}
+              weather={weather}
+              hour={date.getHours()}
+              hidden={ page !== 0}
+          />
+          </div>
         </div>
 
         <BottomNav page={page} onUpdate={(event, newValue) => { setPage(newValue); }} />
