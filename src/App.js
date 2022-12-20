@@ -8,14 +8,10 @@ import Clock from "./comps/Clock";
 import SettingsPage from "./pages/Settings";
 
 import BottomNav from "./comps/BottomNav";
-
-import PlayArrow from "@mui/icons-material/PlayArrow";
-import Pause from "@mui/icons-material/Pause";
-
+import AudioController from "./comps/AudioController/AudioController";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const cdnBaseURL = "https://cdn.ozx.me";
 
 /* 
  * App
@@ -23,89 +19,26 @@ const cdnBaseURL = "https://cdn.ozx.me";
  */
 function App() {
   const [date, setDate] = React.useState(new Date());
-  const [playing, setPlaying] = React.useState(false);
   const [page, setPage] = React.useState(0);
 
   const [game, setGame] = React.useState(sessionStorage.getItem("game"))
   const [weather, setWeather] = React.useState(sessionStorage.getItem("weather"))
 
-  const audioPlayer = document.getElementById("audio");
-  const audioPlayerRain = document.getElementById("audioRain");
-
-  const gameNames = { "new-horizons": "New Horizons", "new-leaf": "New Leaf", "population-growing": "Population Growing", "wild-world": "Wild World" }
+  // Listen to updates to user settings
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setDate(new Date());
+      setGame(sessionStorage.getItem("game"));
+      setWeather(sessionStorage.getItem("weather"));
+    }, 1000)
+    
+    return function cleanup() {
+      clearInterval(timer);
+    };
+  })  
 
   let ToD = null
   let themePrimary = null;
-
-  // This is the weather that is used in the URL
-  // because some games don't have per-weather music, but, we can still use
-  // rain/snow sounds.
-  let urlWeather = weather;
-  const noWeatherSupport = ["population-growing"];
-
-  if (noWeatherSupport.indexOf(game) !== -1) {
-    urlWeather = "clear";
-  }
-
-  React.useEffect(() => {
-    const timerID = setInterval(() => {
-      setDate(new Date());
-
-      setGame(sessionStorage.getItem("game"));
-      setWeather(sessionStorage.getItem("weather"));
-
-      let inUrlWeather = weather;
-
-      if (noWeatherSupport.indexOf(game) !== -1) {
-        inUrlWeather = "clear";
-      }
-
-      if (playing) {
-        if (
-          audioPlayer.src !==
-          `${cdnBaseURL}/ac/${game}/music/${inUrlWeather}/${date.getHours()}.ogg`
-        ) {
-          if ('mediaSession' in navigator) {
-            navigator.mediaSession.metadata = new MediaMetadata({
-              title: `Animal Crossing: ${gameNames[sessionStorage.getItem("game")]}`,
-            });
-          }
-
-          audioPlayer.src = `${cdnBaseURL}/ac/${game}/music/${inUrlWeather}/${date.getHours()}.ogg`;
-          audioPlayer.load();
-          audioPlayer.play();
-        } else if (audioPlayer.pause) {
-          audioPlayer.play();
-        }
-
-        if (weather === "rainy") {
-          audioPlayerRain.volume = 0.7;
-          audioPlayerRain.play();
-        } else {
-          audioPlayerRain.pause();
-        }
-      } else {
-        audioPlayer.pause()
-        audioPlayerRain.pause()
-      }
-    }, 1000);
-
-    return function cleanup() {
-      clearInterval(timerID);
-    };
-  });
-
-  /*
-   * playAudio()
-   * Toggle playing state
-   */
-  function playAudio() {
-    if (audioPlayer.paused) {
-      setPlaying(true);
-    } else {
-      setPlaying(false);
-    }
-  }
 
   if (date.getHours() >= 5 && date.getHours() <= 9) {
     ToD = "morning";
@@ -166,29 +99,15 @@ function App() {
     >
       <div
         className={`App ${ToD} page-${page} darkMode${sessionStorage.getItem("darkMode")}`}>
-        <audio id="audio" loop>
-          <source
-            id="oggSource"
-            src={`${cdnBaseURL}/ac/${game}/music/${urlWeather}/${date.getHours()}.ogg`}
-            type="audio/ogg"
-          ></source>
-        </audio>
-
-        <audio id="audioRain" loop>
-          <source
-            id="oggRainSource"
-            src={`${cdnBaseURL}/sounds/rain.ogg`}
-            type="audio/ogg"
-          ></source>
-        </audio>
-
         <div className="Main">
           {page === 0 && (
             <div className="listenPage">
               <Clock ToD={ToD} />
-              <button className="mediaControl" onClick={playAudio}>
-                {playing ? <Pause /> : <PlayArrow />}
-              </button>
+              <AudioController
+                game={game}
+                weather={weather}
+                hour={date.getHours()}
+              />
             </div>
           )}
           {page === 1 && (

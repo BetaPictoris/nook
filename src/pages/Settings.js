@@ -12,9 +12,9 @@ import getTranslation from "../lang";
  * Settings
  * Settings page
  */
-export default function Settings() {
+export default function SettingsPage() {
   const lang = sessionStorage.getItem("lang");
-  
+
   // gameChange settings event
   // When the game settings option changes update the session's storage
   // to have the new value.
