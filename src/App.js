@@ -11,19 +11,24 @@ import BottomNav from "./comps/BottomNav";
 import AudioController from "./comps/AudioController/AudioController";
 
 import { ThemeProvider } from "@mui/material/styles";
-import { getTheme, getToD } from "./theme"
+import { getTheme, getToD } from "./theme";
 
-/* 
+/*
  * App
  * Main app content and logic
  */
 function App() {
   const [date, setDate] = React.useState(new Date());
   const [page, setPage] = React.useState(0);
-  
-  const [darkMode, setDarkMode] = React.useState(sessionStorage.getItem("darkMode"))
-  const [game, setGame] = React.useState(sessionStorage.getItem("game"))
-  const [weather, setWeather] = React.useState(sessionStorage.getItem("weather"))
+
+  const [darkMode, setDarkMode] = React.useState(
+    sessionStorage.getItem("darkMode")
+  );
+  const [game, setGame] = React.useState(sessionStorage.getItem("game"));
+  const [weather, setWeather] = React.useState(
+    sessionStorage.getItem("weather")
+  );
+  const [lang, setLang] = React.useState(sessionStorage.getItem("lang"));
 
   // Listen to updates to user settings
   React.useEffect(() => {
@@ -31,45 +36,45 @@ function App() {
       setDate(new Date());
       setGame(sessionStorage.getItem("game"));
       setWeather(sessionStorage.getItem("weather"));
-      setDarkMode(sessionStorage.getItem("darkMode"))
-    }, 1000)
-    
+      setDarkMode(sessionStorage.getItem("darkMode"));
+      setLang(sessionStorage.getItem("lang"));
+    }, 1000);
+
     return function cleanup() {
       clearInterval(timer);
     };
-  })  
+  });
 
-  let themeType = "light"
+  let themeType = "light";
   if (darkMode === "on") {
-    themeType = "dark"
+    themeType = "dark";
   }
-  const ToD = getToD(date.getHours())
-  const theme = getTheme(themeType, date.getHours())
+  const ToD = getToD(date.getHours());
+  const theme = getTheme(themeType, date.getHours());
 
   return (
-    <ThemeProvider
-      theme={theme}
-    >
-      <div
-        className={`App ${ToD} page-${page} darkMode${darkMode}`}>
+    <ThemeProvider theme={theme}>
+      <div className={`App ${ToD} page-${page} darkMode${darkMode}`}>
         <div className="Main">
           <div className="page">
-          {page === 0 && (
-              <Clock ToD={ToD} />
-          )}
-          {page === 1 && (
-              <SettingsPage />
-          )}
-          <AudioController
+            {page === 0 && <Clock ToD={ToD} />}
+            {page === 1 && <SettingsPage />}
+            <AudioController
               game={game}
               weather={weather}
               hour={date.getHours()}
-              hidden={ page !== 0}
-          />
+              hidden={page !== 0}
+            />
           </div>
         </div>
 
-        <BottomNav page={page} onUpdate={(event, newValue) => { setPage(newValue); }} />
+        <BottomNav
+          lang={lang}
+          page={page}
+          onUpdate={(_, newValue) => {
+            setPage(newValue);
+          }}
+        />
       </div>
     </ThemeProvider>
   );
