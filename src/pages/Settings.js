@@ -55,7 +55,7 @@ export default function SettingsPage() {
         <FormLabel id="gameFormLabel">{getTranslation("game", lang)}</FormLabel>
         <RadioGroup
           aria-labelledby="gameFormLabel"
-          defaultValue={sessionStorage.getItem("game")}
+          value={sessionStorage.getItem("game")}
           name="gameForm"
           onChange={gameChange}
         >
@@ -87,7 +87,7 @@ export default function SettingsPage() {
         </FormLabel>
         <RadioGroup
           aria-labelledby="weatherFormLabel"
-          defaultValue={sessionStorage.getItem("weather")}
+          value={sessionStorage.getItem("weather")}
           name="weatherForm"
           onChange={weatherChange}
         >
@@ -114,7 +114,7 @@ export default function SettingsPage() {
         </FormLabel>
         <RadioGroup
           aria-labelledby="languageFormLabel"
-          defaultValue={sessionStorage.getItem("lang")}
+          value={sessionStorage.getItem("lang")}
           name="languageForm"
           onChange={languageChange}
         >
