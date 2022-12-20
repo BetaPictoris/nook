@@ -7,6 +7,10 @@ import Settings from "@mui/icons-material/Settings";
 
 import getTranslation from "../lang";
 
+/*
+  BottomNav
+  The bottom app navigation menu
+*/
 export default function BottomNav(props) {
   return (
     <Box className="bottomNavBox">
@@ -26,5 +30,5 @@ export default function BottomNav(props) {
         />
       </BottomNavigation>
     </Box>
-  )
+  );
 }
