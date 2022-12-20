@@ -8,6 +8,8 @@ import Switch from "@mui/material/Switch";
 
 import getTranslation from "../lang";
 
+import "./styles/Settings.css";
+
 /*
  * Settings
  * Settings page
@@ -34,7 +36,7 @@ export default function SettingsPage() {
   // to have the new value.
   const languageChange = (event) => {
     sessionStorage.setItem("lang", event.target.value);
-  }
+  };
 
   // darkModeChange settings event
   // When the darkMode settings option changes update the session's storage to
@@ -49,7 +51,9 @@ export default function SettingsPage() {
 
   return (
     <div
-      className={`settingsCompDarkMode${sessionStorage.getItem("darkMode")}`}
+      className={`settingsCompDarkMode settingsCompDarkMode${sessionStorage.getItem(
+        "darkMode"
+      )}`}
     >
       <FormControl>
         <FormLabel id="gameFormLabel">{getTranslation("game", lang)}</FormLabel>
@@ -118,26 +122,14 @@ export default function SettingsPage() {
           name="languageForm"
           onChange={languageChange}
         >
-          <FormControlLabel
-            value="en"
-            control={<Radio />}
-            label="English"
-          />
-          <FormControlLabel
-            value="de"
-            control={<Radio />}
-            label="Deutsch"
-          />
-          <FormControlLabel
-            value="fr"
-            control={<Radio />}
-            label="Français"
-          />
+          <FormControlLabel value="en" control={<Radio />} label="English" />
+          <FormControlLabel value="de" control={<Radio />} label="Deutsch" />
+          <FormControlLabel value="fr" control={<Radio />} label="Français" />
         </RadioGroup>
       </FormControl>
       <FormControl>
         <FormControlLabel
-          control={ <Switch value={sessionStorage.getItem("darkMode")} /> }
+          control={<Switch value={sessionStorage.getItem("darkMode")} />}
           onChange={darkModeChange}
           label={getTranslation("darkMode", lang)}
         />

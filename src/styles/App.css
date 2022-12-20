@@ -1,5 +1,5 @@
 .App {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .Main {
@@ -10,9 +10,6 @@
   margin-top: -10px;
 }
 
-.Player {
-  padding-top: 3em;
-}
 
 /* Time based themes */
 .morning { 
@@ -35,52 +32,15 @@
   linear-gradient(#2c4f83, #072a51);
 }
 
-/* Settings Button */
-.settingsBttn {
-  background-color: #00000000;
-  border: none;
-
-  color: #eee;
-  font-size: 1.5em;
-
-  padding-top: 5px;
-  padding-left: 5px;
-
-  cursor: pointer;
-}
-
-.bottomNavBox {
-  position: absolute;
-  width: 100vw;
-  bottom: 0px;
+/* Dark mode */
+.darkModeon {
+  background-image: url("https://cdn.ozx.me/ac/pattern_fallback.png"),
+    linear-gradient(#191919, #121212);
 }
 
 .bottomNav {
   border-radius: 10px 10px;
-}
-
-/* settingsPage styles */
-.settingsCompDarkModeoff {
-  background-image: linear-gradient(#eee, #fff);
-  height: 60vh;
-
-  padding-top: 20px;
-
-  border-radius: 20px 20px 0px 0px;
-}
-
-.settingsCompDarkModeon {
-  color: #c5c5c5;
-  background-image: linear-gradient(#111, #000) !important;
-  height: 60vh;
-
-  padding-top: 20px;
-
-  border-radius: 10px 10px;
-}
-
-/* Dark mode */
-.darkModeon {
-  background-image: url("https://cdn.ozx.me/ac/pattern_fallback.png"),
-  linear-gradient(#191919, #121212);
+  position: absolute;
+  width: 100vw;
+  bottom: 0px;
 }

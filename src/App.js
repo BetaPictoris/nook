@@ -52,7 +52,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className={`App ${ToD} page-${page} darkMode${darkMode}`}>
+      <div className={`App ${ToD} darkMode${darkMode}`}>
         <div className="Main">
           <div className="page">
             {page === 0 && <Clock lang={lang} ToD={ToD} date={date} />}
