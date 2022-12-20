@@ -16,7 +16,7 @@ export default function AudioController(props) {
       document.getElementById("weatherPlayer"),
     ];
 
-    for (let i in players) {
+    for (const i in players) {
       players[i].load();
       players[i].play();
     }
@@ -31,7 +31,7 @@ export default function AudioController(props) {
       document.getElementById("weatherPlayer"),
     ];
 
-    for (let i in players) {
+    for (const i in players) {
       players[i].pause();
     }
 
@@ -41,6 +41,7 @@ export default function AudioController(props) {
   // Set metadata session
   navigator.mediaSession.metadata = getMetadata(props.game);
 
+  // Reload audio players after settings have been changed
   React.useEffect(() => {
     if (playing) {
       play();
