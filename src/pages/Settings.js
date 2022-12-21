@@ -51,7 +51,7 @@ export default function SettingsPage() {
 
   return (
     <div
-      className={`settingsCompDarkMode settingsCompDarkMode${sessionStorage.getItem(
+      className={`settingsComp settingsCompDarkMode${sessionStorage.getItem(
         "darkMode"
       )}`}
     >
