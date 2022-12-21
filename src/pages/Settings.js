@@ -129,7 +129,7 @@ export default function SettingsPage() {
       </FormControl>
       <FormControl>
         <FormControlLabel
-          control={<Switch value={sessionStorage.getItem("darkMode")} />}
+          control={<Switch checked={sessionStorage.getItem("darkMode") === "on"} />}
           onChange={darkModeChange}
           label={getTranslation("darkMode", lang)}
         />
