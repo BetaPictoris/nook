@@ -56,7 +56,7 @@ function App() {
         <div className="Main">
           <div className="page">
             {page === 0 && <Clock lang={lang} ToD={ToD} date={date} />}
-            {page === 1 && <SettingsPage />}
+            {page === 1 && <SettingsPage lang={lang} />}
             <AudioController
               game={game}
               weather={weather}

@@ -8,24 +8,22 @@ import "./styles/Settings.css";
  * Settings
  * Settings page
  */
-export default function SettingsPage() {
-  const lang = sessionStorage.getItem("lang");
-
+export default function SettingsPage(props) {
   return (
     <div
       className={`settingsComp settingsCompDarkMode${sessionStorage.getItem(
         "darkMode"
       )}`}
     >
-      <SettingsOptions lang={lang} />
+      <SettingsOptions lang={props.lang} />
 
       <p className="legalTxt">
-        {`${getTranslation("webPort", lang)} `}
+        {`${getTranslation("webPort", props.lang)} `}
         <a href="https://twitter.com/AnimalRadio_App">
-          {getTranslation("animalSounds", lang)}
+          {getTranslation("animalSounds", props.lang)}
         </a>
         .<br />
-        {getTranslation("notAssociated", lang)}
+        {getTranslation("notAssociated", props.lang)}
       </p>
     </div>
   );
