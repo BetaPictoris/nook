@@ -1,5 +1,5 @@
 const translations = {
-  "en": {
+  en: {
     listenTabTitle: "Listen",
     settingsTabTitle: "Settings",
 
@@ -19,7 +19,7 @@ const translations = {
     weatherRainy: "Rain",
     weatherSnowy: "Snow",
 
-    language: "Language",
+    lang: "Language",
 
     darkMode: "Dark mode",
 
@@ -29,7 +29,7 @@ const translations = {
       'Not associated with or endorsed by Nintendo, Animal Sounds, or "Animal Radio".',
   },
 
-  "de": {
+  de: {
     listenTabTitle: "Hören",
     settingsTabTitle: "Einstellungen",
 
@@ -48,8 +48,8 @@ const translations = {
     weatherClear: "Klares",
     weatherRainy: "Regen",
     weatherSnowy: "Schnee",
-    
-    language: "Sprache",
+
+    lang: "Sprache",
 
     darkMode: "Dunkler Modus",
 
@@ -59,7 +59,7 @@ const translations = {
       "Nicht verbunden mit oder gebilligt von Nintendo, Animal Sounds oder «Animal Radio».",
   },
 
-  "fr": {
+  fr: {
     listenTabTitle: "Écouter",
     settingsTabTitle: "Réglages",
 
@@ -78,8 +78,8 @@ const translations = {
     weatherClear: "Clair",
     weatherRainy: "Pleut",
     weatherSnowy: "Neige",
-    
-    language: "Langue",
+
+    lang: "Langue",
 
     darkMode: "Mode sombre",
 
@@ -87,7 +87,7 @@ const translations = {
     animalSounds: "Animal Sounds",
     notAssociated:
       "Pas associé avec Nintendo, Animal Sounds, ou «Animal Radio».",
-  }
+  },
 };
 
 /*
